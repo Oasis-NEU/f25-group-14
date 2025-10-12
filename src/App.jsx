@@ -5,10 +5,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const name = "Name"
 
   return (
     <>
-    <h1>Welcome to Backyard</h1>
+    <h1>Welcome to Backyard, {name}!</h1>
     </>
   )
 }
