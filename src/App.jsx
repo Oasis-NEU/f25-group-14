@@ -5,8 +5,13 @@ import './App.css'
 import { SearchBar } from './components/SearchBar'
 
 function App() {
+<<<<<<< HEAD
   // const [count, setCount] = useState(0)
   // const name = "Name"
+=======
+  const [count, setCount] = useState(0)
+  const name = "User Name"
+>>>>>>> 38e9dd2effe2c131271218eb0bbb4087dbebf2d0
 
   return (
     <div className="App">
