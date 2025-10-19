@@ -12,7 +12,11 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react": "^19.1.1",
+=======
+    "react": "^19.2.0",
+>>>>>>> parent of 6a2dad8 (what)
 =======
     "react": "^19.2.0",
 >>>>>>> parent of 6a2dad8 (what)
