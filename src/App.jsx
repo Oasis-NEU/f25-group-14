@@ -4,6 +4,10 @@ import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
 import { BrowserRouter } from 'react-router-dom'
 
+function example() {
+  
+}
+
 function App() {
   const [results, setResults] = useState([])
 
