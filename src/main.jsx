@@ -11,3 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </BrowserRouter>
 )
+
+//to do:
+//add an embedded table into the app-
+//  overtable (contains info on universities and reference to sub table) -> subtable (uni club info)
