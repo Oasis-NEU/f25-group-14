@@ -8,7 +8,6 @@ import './SearchBar.css'
 export const SearchBar = ({ setResults }) => {
 
   const [input, setInput] = useState("")
-
   const [universities, setUniversities] = useState([]); // Initialized as an empty array.
 
 
