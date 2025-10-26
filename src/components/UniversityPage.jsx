@@ -6,7 +6,7 @@ export const UniversityPage = () => {
   const { id } = useParams()
   const [university, setUniversity] = useState(null)
 
-  //this is gpted. the goal for this is to have nested club tables embedded into the overall uni table
+  //this'll be used for the second table when we're ready
   useEffect(() => { 
     async function fetchUniversity() {
       const { data, error } = await supabase
