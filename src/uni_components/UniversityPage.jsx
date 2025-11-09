@@ -33,6 +33,6 @@ export const UniversityPage = () => {
       <h1>{university.uni_name}</h1>
       <p>ID: {university.id}</p>
       {/* Add more fields if your table has them */}
-    </div>
+    </div> 
   )
 }
