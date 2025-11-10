@@ -26,7 +26,7 @@ export const UniversityPage = () => {
     }
 
     fetchUniversity()
-  }, [id])jh
+  }, [id])
 
   if (!university) return <div>Loading...</div>
 
