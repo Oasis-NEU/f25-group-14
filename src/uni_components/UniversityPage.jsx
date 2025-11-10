@@ -32,6 +32,7 @@ export const UniversityPage = () => {
 
   return (
     <div className="UniPage">
+      <h1>{university.uni_name}</h1>
       {/*
       <Routes>
         <Route
