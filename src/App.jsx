@@ -15,6 +15,13 @@ function App() {
           path="/"
           element={
             <div className="search-bar-container">
+             <h2 className="welcome-text">
+              Wel
+              <span className="raccoon-wrapper">
+              <img src="/raccoon.png" alt="raccoon" className="raccoon-icon" />
+              </span>
+              <span className="come-text">come</span>
+              </h2>
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />
             </div>
