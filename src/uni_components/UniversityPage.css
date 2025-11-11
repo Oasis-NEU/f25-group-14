@@ -5,6 +5,12 @@
   align-items: center;   /* horizontal centering */
   height: 100vh;
   width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align content toward the top */
+  align-items: center;
+  padding-top: 15vh; /* adjust this number (10–20vh) for spacing */
 }
 
 .spacer {
@@ -12,14 +18,12 @@
 }
 
 .search-bar-container {
+  padding-top: 20vh;
   width: 40%;
-  margin-top: 15vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 200px;
 }
 
 .UniName {
