@@ -9,7 +9,7 @@ export const SearchBar = ({ setResults }) => {
 
   const [input, setInput] = useState("")
   const [universities, setUniversities] = useState([]); // Initialized as an empty array.
-
+  //hey, new comment
 
   useEffect(() => {
     console.log("useEffect running, input =", input);
