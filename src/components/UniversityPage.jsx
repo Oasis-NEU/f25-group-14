@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
-
+import './UniversityPage.css'
 
 //this is the landing page for our university club search, most of the info will go through here 
 export const UniversityPage = () => {
@@ -31,8 +31,14 @@ export const UniversityPage = () => {
   if (!university) return <div>Loading...</div>
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>{university.uni_name}</h1>
+    <div style={{ padding: '2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh'
+    }}>
+      <h1 className='UniName'>{university.uni_name}</h1>
       <p>ID: {university.id}</p>
       {/* Add more fields if your table has them */}
     </div>

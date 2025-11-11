@@ -1,15 +1,42 @@
 .UniPage {
   background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* horizontal centering */
   height: 100vh;
   width: 100vw;
 }
 
+.spacer {
+  flex-grow: .1; /* pushes the search bar down */
+}
+
 .search-bar-container {
-  padding-top: 20vh;
   width: 40%;
-  margin: auto;
+  margin-top: 15vh;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 200px;
+}
+
+.UniName {
+  color: #e1281b; /* blue */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin: 0;
+}
+
+.img{
+    float: auto
+}
+
+#iconBox{
+  width: 600px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 1%;
 }

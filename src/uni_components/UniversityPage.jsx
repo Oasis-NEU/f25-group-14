@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
+import './UniversityPage.css'
+import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
 
 export const UniversityPage = () => {
   const { id } = useParams()
@@ -32,7 +34,17 @@ export const UniversityPage = () => {
 
   return (
     <div className="UniPage">
-      <h1>{university.uni_name}</h1>
+      <div className='spacer' />
+      <img src={NEULogo} width="150px" className="img"/>
+      <h1 className='UniName'>{university.uni_name}</h1>
+      <div id="iconBox"></div>
+      <div className="uni-search-bar-container">
+        <UniSearchBar setResults={setResults} />
+      </div>
+    </div>
+  )
+}
+
       {/*
       <Routes>
         <Route
@@ -46,12 +58,6 @@ export const UniversityPage = () => {
         <Route path="club path" element={<Club Page lol />} />
       </Routes>
         */}
-      <div className="uni-search-bar-container">
-        <UniSearchBar setResults={setResults} />
-      </div>
-    </div>
-  )
-}
 
 /*
 import { Routes, Route } from 'react-router-dom'
