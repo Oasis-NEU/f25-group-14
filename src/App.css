@@ -8,7 +8,7 @@
   padding-top: 20vh;
   width: 40%;
   margin: 0 auto;
-  width: 90%;                  /* responsive */
+  width: 70%;                  /* responsive */
   max-width: 1200px;
   display: flex;
   flex-direction: column;

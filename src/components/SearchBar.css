@@ -1,7 +1,7 @@
 .welcome-text {
     position: relative;
     font-family: 'Raleway', sans-serif;
-    font-size: 5.5rem;
+    font-size: 7.5rem;
     font-weight: 750px;
     margin-bottom: 1%;
     text-align: center;
@@ -16,7 +16,7 @@
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-style: italic;
-  margin-left: 5.2rem; /* adjust this until it looks right */
+  margin-left: 5.5rem; /* adjust this until it looks right */
 }
 
 .input-wrapper {
@@ -67,10 +67,10 @@ input:focus {
 
 .raccoon-icon {
   position: absolute;
-  top: -115px; /* move it upward */
+  top: -170px; /* move it upward */
   left: -50; /* adjust horizontally */
-  height: 8rem;
-  width: 15rem;
-  transform: translateX(-30%); /* shift it slightly left */
-  z-index: 2; /* keep it on top of text */
+  height: 12rem;
+  width: 22.5rem;
+  transform: translateX(-35%); /* shift it slightly left */
+  z-index: 10; /* keep it on top of text */
 }
