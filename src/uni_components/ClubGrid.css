@@ -1,0 +1,31 @@
+.club-card {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.club-card:hover {
+  transform: scale(1.02);
+}
+
+.club-img {
+  background-color: #eee;
+  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.club-info h2 {
+  margin: 0;
+  color: #b00;
+}
