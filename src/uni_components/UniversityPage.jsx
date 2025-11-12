@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
 
+import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
+
 export const UniversityPage = () => {
   const { id } = useParams()
   const [university, setUniversity] = useState(null)
