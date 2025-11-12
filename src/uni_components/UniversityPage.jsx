@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
+import './UniversityPage.css';
+
 
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
 

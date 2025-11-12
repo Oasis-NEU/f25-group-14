@@ -1,46 +1,43 @@
+/* UniversityPage.css */
 .UniPage {
-  background-color: #eee;
+  background-color: #e1e1e1;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* horizontal centering */
+  align-items: center;     /* centers horizontally */
+  justify-content: flex-start;
   height: 100vh;
   width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* align content toward the top */
-  align-items: center;
-  padding-top: 15vh; /* adjust this number (10–20vh) for spacing */
+  padding-top: 10vh;
+  text-align: center;
 }
 
-.spacer {
-  flex-grow: .1; /* pushes the search bar down */
-}
-
-.search-bar-container {
-  padding-top: 20vh;
-  width: 40%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.img {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px;
 }
 
 .UniName {
-  color: #e1281b; /* blue */
+  color: #e1281b;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-top: 2rem;
-  margin: 0;
+  margin: 1rem 0;
 }
 
-.img{
-    float: auto
-}
-
-#iconBox{
+/* #iconBox {
   width: 600px;
   height: 60px;
-  background-color: rgb(255, 255, 255);
-  margin-bottom: 1%;
+  background-color: #fff;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+} */
+
+.uni-search-bar-container {
+  margin-top: 4vh;
+  width: 60%;
+  display: flex;
+  justify-content: center;
 }
