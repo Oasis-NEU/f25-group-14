@@ -4,7 +4,6 @@ import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
 import './UniversityPage.css';
 
-
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
 
 export const UniversityPage = () => {
