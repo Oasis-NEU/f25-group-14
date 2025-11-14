@@ -8,7 +8,7 @@ import './UniSearchBar.css'
 export const UniSearchBar = ({ setResults }) => {
 
     
-  const [input, setInput] = useState("")/*
+  const [input, setInput] = useState("")
   const [clubs, setClubs] = useState([]); // Initialized as an empty array.
 
 
@@ -18,10 +18,10 @@ export const UniSearchBar = ({ setResults }) => {
     async function getClubs() {
 
         //these will change depending on the structure of the database, but for now they'll be like this
-      let query = supabase.from("uni_names").select("*");
+      let query = supabase.from("uni_clubs").select("*");
 
       if (input.trim() !== "") {
-        query = query.ilike("uni_name", `%${input}%`);
+        query = query.ilike("Club", `%${input}%`);
       }
 
       const { data, error } = await query;
@@ -37,7 +37,7 @@ export const UniSearchBar = ({ setResults }) => {
 
     getClubs();
   }, [input, setResults]); //whenever the user input changes, we want to re-run this effect
-  */
+  
   const handleChange = (value) => {
     setInput(value);
   } 
