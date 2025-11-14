@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;     /* centers horizontally */
   justify-content: flex-start;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 
   display: flex;
@@ -44,5 +44,37 @@
   width: 600px;
   height: 60px;
   background-color: rgb(255, 255, 255);
-  margin-bottom: -53vh;
+  margin-bottom: 1vh;
+}
+
+.grid-container {
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 20px;
+
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin-top: 3vh;
+
+  margin-bottom: 3vh;
+
+  padding: 0 20px;
+
+}
+
+.grid-box {
+
+  background-color: #888;
+
+  aspect-ratio: 1;
+
+  min-height: 200px;
+
+  border-radius: 8px;
+
 }

@@ -45,6 +45,15 @@ export const UniversityPage = () => {
         <UniSearchBar setResults={setResults} />
         <ClubList results={result} />
       </div>
+      <div className="grid-container">
+
+        {Array.from({ length: 25 }, (_, i) => (
+
+          <div key={i} className="grid-box"></div>
+
+        ))}
+
+      </div>
     </div>
   )
 }
