@@ -8,7 +8,7 @@ import './UniSearchBar.css'
 export const UniSearchBar = ({ setResults }) => {
 
     
-  const [input, setInput] = useState("") /*
+  const [input, setInput] = useState("")/*
   const [clubs, setClubs] = useState([]); // Initialized as an empty array.
 
 
@@ -37,7 +37,6 @@ export const UniSearchBar = ({ setResults }) => {
 
     getClubs();
   }, [input, setResults]); //whenever the user input changes, we want to re-run this effect
-
   */
   const handleChange = (value) => {
     setInput(value);
