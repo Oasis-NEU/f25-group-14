@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
+import './UniversityPage.css';
+import { ClubList } from './ClubList'
 
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
 import './UniversityPage.css'
@@ -41,6 +43,7 @@ export const UniversityPage = () => {
       <div id="iconBox"></div>
       <div className="search-bar-container">
         <UniSearchBar setResults={setResults} />
+        <ClubList results={result} />
       </div>
     </div>
   )
