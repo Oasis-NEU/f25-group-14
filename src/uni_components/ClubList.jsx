@@ -3,8 +3,12 @@ import { ClubGrid } from './ClubGrid';
 import './ClubList.css';
 
 export const ClubList = ({ results }) => {
-  if (!results || results.length === 0) {
-    return <p className="no-results">No clubs found.</p>;
+  if (!results) {
+    return <p>No clubs found.</p>;
+  }
+
+  if (results.length === 0) {
+    return <p>results length 0.</p>;
   }
 
   return (
