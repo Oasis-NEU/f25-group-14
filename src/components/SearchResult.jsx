@@ -9,5 +9,5 @@ export const SearchResult = ({ result }) => {
         navigate(`/university/${result.id}`);
     }
 
-    return <div styleclassName='search-result' onClick={handeClick}>{result.uni_name}</div>
+    return <div className='search-result' onClick={handeClick}>{result.uni_name}</div>
 }

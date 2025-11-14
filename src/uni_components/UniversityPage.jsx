@@ -4,6 +4,7 @@ import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
 
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
+import './UniversityPage.css'
 
 export const UniversityPage = () => {
   const { id } = useParams()
@@ -35,10 +36,10 @@ export const UniversityPage = () => {
   return (
     <div className="UniPage">
       <div className='spacer' />
-      <img src={NEULogo} width="150px" className="img"/>
+      <img src={NEULogo} width="120px" className="center"/>
       <h1 className='UniName'>{university.uni_name}</h1>
       <div id="iconBox"></div>
-      <div className="uni-search-bar-container">
+      <div className="search-bar-container">
         <UniSearchBar setResults={setResults} />
       </div>
     </div>

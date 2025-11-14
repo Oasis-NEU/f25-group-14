@@ -31,6 +31,21 @@ export const UniversityPage = () => {
   if (!university) return <div>Loading...</div>
 
   return (
+      <div className="UniPage">
+        <div className='spacer' />
+        <img src={NEULogo} width="150px" className="center"/>
+        <h1 className='UniName'>{university.uni_name}</h1>
+        <div id="iconBox"></div>
+        <div className="uni-search-bar-container">
+          <UniSearchBar setResults={setResults} />
+        </div>
+      </div>
+    )
+}
+
+
+
+/*
     <div style={{ padding: '2rem',
     display: 'flex',
     flexDirection: 'column',
@@ -40,7 +55,5 @@ export const UniversityPage = () => {
     }}>
       <h1 className='UniName'>{university.uni_name}</h1>
       <p>ID: {university.id}</p>
-      {/* Add more fields if your table has them */}
-    </div>
-  )
-}
+      {/* Add more fields if your table has them */
+  
