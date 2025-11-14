@@ -1,16 +1,21 @@
-from selenium import webdriver #type:ignore
-from selenium.webdriver.chrome.options import Options #type: ignore
-from selenium.webdriver.common.by import By #type: ignore
-from selenium.webdriver.support.ui import WebDriverWait #type:ignore
-from selenium.webdriver.support import expected_conditions as EC #type:ignore
-from selenium.common.exceptions import TimeoutException, NoSuchElementException #type:ignore
-from typing import Any
+from typing import Any, Optional
 import time
+import json
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 opts = Options()
-opts.add_argument("--headless")
-opts.add_argument("--no-sandbox")
 opts.add_argument("--disable-dev-shm-usage")
+opts.add_argument("--disable-extensions")
+opts.add_argument("--disable-gpu")
+opts.add_argument("--disable-background-timer-throttling")
+opts.add_argument("--disable-renderer-backgrounding")
+opts.add_argument("--disable-backgrounding-occluded-windows")
+opts.add_argument("--no-sandbox")
 
 club_data: dict[str, dict[str, Any]] = {} 
 
@@ -41,8 +46,8 @@ while True:
         print("Page done loading")
         break
 
-
-search_list = driver.find_elements(By.CLASS_NAME, "MuiCard-root")
+href_list = [element.get_attribute('href') for element in driver.find_elements(By.XPATH, "//a")]
+print(href_list)
 
 """
 print("\n***LIST STARTS UNDER HERE:***\n")
@@ -52,30 +57,30 @@ print(len(search_list))
 """
 
 print("\n***SCRAPING STARTS HERE:***\n")
-for i in range(len(search_list)):
+for i in range(len(href_list)):
     """
     for j in range(len(search_list)):
         print(search_list[j].text)
     print(f"\n***CURRENT INDEX***\n{i}")
     """
-    print(search_list[i].text)
-    search_list[i].click() #click on the club
-    print("Clicked on listing!")
+    #print(driver.get(href_list[i]).text)
+    driver.get(href_list[i])
+    print("Navigated to listing!")
     #club_name = driver.find_element(By.XPATH, "//h1").text
     club_name = waiting_time.until(EC.presence_of_element_located((By.XPATH, "//h1"))).text
     description_elements = driver.find_elements(By.XPATH, "//div[contains(@class, 'userSupplied')]//p")
     description: list[str] = [p.text for p in description_elements]
     try:
-        image_url = driver.find_element(By.XPATH, "//img").get_attribute("src")
+        image_url: Optional[str] = driver.find_element(By.XPATH, "//img").get_attribute("src")
     except(NoSuchElementException):
         image_url = None
     #print(f"CLUB NAME: {club_name} CLUB_DESCRIPTION: {" ".join(description)}")
     club_data[club_name] = {'description': " ".join(description), 'image_url': image_url}
 
-    driver.back()
-    search_list = driver.find_elements(By.CLASS_NAME, "MuiCard-root")
-
     time.sleep(1)
 
 driver.quit()
 print(club_data)
+
+with open('clubs.json', 'w') as f:
+    json.dump(club_data, f)
