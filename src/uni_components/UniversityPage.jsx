@@ -37,22 +37,12 @@ export const UniversityPage = () => {
 
   return (
     <div className="UniPage">
-      <div className='spacer' />
       <img src={NEULogo} width="120px" className="center"/>
       <h1 className='UniName'>{university.uni_name}</h1>
       <div id="iconBox"></div>
       <div className="search-bar-container">
         <UniSearchBar setResults={setResults} />
         <ClubList results={result} />
-      </div>
-      <div className="grid-container">
-
-        {Array.from({ length: 25 }, (_, i) => (
-
-          <div key={i} className="grid-box"></div>
-
-        ))}
-
       </div>
     </div>
   )
