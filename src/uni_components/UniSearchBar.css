@@ -1,13 +1,13 @@
 .club-input-wrapper {
     background-color: white;
-    width: 100%;
+    width: 600px;
     border-radius: 10px;
-    height: 2.5rem;
-    padding: 0 15px;
+    height: 3rem;
+    padding: 0 10px;
     box-shadow: 0px 0px 8px #ddd;
     display: flex;
     align-items: center;
-    margin-left: 5px;
+    margin: 0 auto;
 }
 
 input {
@@ -23,6 +23,6 @@ input:focus {
     outline: none;
 }
 
-#search-icon {
-    color: royalblue;
+.search-icon {
+    color: rgb(0, 0, 0);
 }

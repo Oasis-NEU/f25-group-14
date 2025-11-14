@@ -9,7 +9,7 @@ export const SearchBar = ({ setResults }) => {
 
   const [input, setInput] = useState("")
   const [universities, setUniversities] = useState([]); // Initialized as an empty array.
-
+  //hey, new comment
 
   useEffect(() => {
     console.log("useEffect running, input =", input);
@@ -44,7 +44,7 @@ export const SearchBar = ({ setResults }) => {
     <div className="input-wrapper">
         <FaSearch className="search-icon" />
         <input
-            placeholder="Type to search..."
+            placeholder="Search for your school"
             value={input}
             onChange={(e) => handleChange(e.target.value)}
         />

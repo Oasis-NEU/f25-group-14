@@ -1,13 +1,15 @@
 .App {
-  background-color: #eee;
+  background-color: #e1e1e1;
   height: 100vh;
   width: 100vw;
 }
 
+/* Keep the search layout big and wide */
 .search-bar-container {
   padding-top: 20vh;
-  width: 40%;
-  margin: auto;
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

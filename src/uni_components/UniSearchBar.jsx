@@ -39,7 +39,9 @@ export const UniSearchBar = ({ setResults }) => {
   }, [input, setResults]); //whenever the user input changes, we want to re-run this effect
 
   */
-  const handleChange = (value) => setInput(value);
+  const handleChange = (value) => {
+    setInput(value);
+  } 
 
   return (
     <div className="club-input-wrapper">

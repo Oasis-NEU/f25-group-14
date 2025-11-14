@@ -3,7 +3,7 @@
 }
 
 .search-result:hover {
-    background-color: #efefef;
+    background-color: #f90000;
 }
 
 .search-result {
@@ -14,5 +14,5 @@
 }
 
 .search-result:hover {
-  background-color: #f0f0f0;
+  background-color: #fff0f0;
 }
