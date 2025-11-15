@@ -22,6 +22,7 @@ return (
                 key={icon.name}
                 className={`icon-container ${active === idx ? 'active' : ''}`}
                 onClick={() => setActive(idx)}
+                
             >
                 <img
                     src={'/src/assets/' + icon.name + '.png'}
