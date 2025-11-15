@@ -1,18 +1,36 @@
 .club-card {
-  display: flex;
-  align-items: flex-start;
   background: white;
-  padding: 1rem;
-  margin: 1rem;
-  box-shadow: 5px 5px 5px #000000;
-  transition: transform 0.2s ease;
-  border: 4px solid #000000;
+  border-radius: 20px;
+  padding: 20px;
+  width: 260px;
+  transition: 
+    transform 0.35s ease,
+    width 0.35s ease,
+    height 0.35s ease,
+    box-shadow 0.35s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* expanded state */
+.club-card.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: 70vw;
+  height: 70vh;
+  z-index: 9999;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
 .club-card:hover {
   transform: scale(1.02);
 }
+.club-card:translate(
 
+)
 .club-img {
   background-color: #eee;
   border-radius: 8px;
