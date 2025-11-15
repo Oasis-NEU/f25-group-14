@@ -20,7 +20,7 @@ export const UniSearchBar = ({ setResults, university}) => {
       console.log("input:", input);
 
         //these will change depending on the structure of the database, but for now they'll be like this
-      let query = supabase.from("club_data").select("*").eq("school", university).limit(10); //next filter by school depending on the page we're on
+      let query = supabase.from("sample_club_data").select("*").eq("school", university).limit(10); //next filter by school depending on the page we're on
       console.log("Query before filters:", query);
 
       if (input.trim() !== "") {
