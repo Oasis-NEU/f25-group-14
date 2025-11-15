@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../supabase'
 import { UniSearchBar } from './UniSearchBar'
-import {IconBar} from './IconBar'
+import IconBar from './IconBar'
 import './UniversityPage.css';
 import { ClubList } from './ClubList'
 
