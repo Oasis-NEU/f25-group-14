@@ -1,0 +1,14 @@
+#iconBox{
+  width: 900px;
+  height: 80px;
+  background-color: white;
+  margin-bottom: 2vh;  
+  margin-top: 1%;
+  background-color: rgb(255, 255, 255);
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
