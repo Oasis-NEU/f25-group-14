@@ -8,7 +8,7 @@ export const ClubList = ({ results }) => {
   }
 
   if (results.length === 0) {
-    return <p>results length 0.</p>;
+    return <p>no results</p>;
   }
 
   return (
