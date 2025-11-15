@@ -38,7 +38,7 @@ export const UniversityPage = () => {
   return (
     <div className="UniPage">
       <img src={NEULogo} width="120px" className="center"/>
-      <h1 className='UniName'>{university.uni_name}</h1>
+    
       <div id="iconBox"></div>
       <div className="search-bar-container">
         <UniSearchBar setResults={setResults}

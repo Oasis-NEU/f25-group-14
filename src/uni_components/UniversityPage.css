@@ -21,7 +21,7 @@
 
 .search-bar-container {
   padding-top: 1vh;
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,10 +40,11 @@
 }
 
 #iconBox{
-  width: 600px;
-  height: 60px;
+  width: 900px;
+  height: 80px;
   background-color: white;
   margin-bottom: 2vh;  
+  margin-top: 1%;
   background-color: rgb(255, 255, 255);
 }
 
