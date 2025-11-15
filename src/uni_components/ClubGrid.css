@@ -29,3 +29,8 @@
   margin: 0;
   color: #b00;
 }
+
+.club-card {
+  width: 100%;
+  max-width: 400px; /* optional */
+}
