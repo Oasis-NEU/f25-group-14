@@ -12,9 +12,9 @@ export const ClubGrid = ({ result }) => {
 
       
       <div className="club-info">
-        <h2>{result.club}</h2>
-        <p>{result.description}</p>
-        <p>Rating: {"⭐".repeat(parseInt(result.rating))}</p>
+        <h2>{result.club_name}</h2>
+        <p>{result.club_description}</p>
+        <p><strong>Rating: </strong>{"⭐".repeat(parseInt(result.rating))}</p>
       </div>
     </div>
   );
