@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ClubGrid.css';
 import heartEmpty from '/src/assets/empty_heart.png';
-import heartFull from '/src/assets/heart.png';
+import heartFull from '/src/assets/full_heart.png';
 
 export const ClubGrid = ({ result }) => {
   const [expanded, setExpanded] = useState(false);
