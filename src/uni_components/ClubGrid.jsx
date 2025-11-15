@@ -6,9 +6,9 @@ export const ClubGrid = ({ result }) => {
     <div className="club-card">
       <div className="club-img">🎓</div>
       <div className="club-info">
-        {/* <h2>{result.uni_name}</h2>
-        <p>{result.category || 'General Club'}</p>
-        <p>{result.description || 'No description available.'}</p> */}
+        <h2>{result.club}</h2>
+        <p>{result.description}</p>
+        <p>Rating: {result.rating}</p>
       </div>
     </div>
   );

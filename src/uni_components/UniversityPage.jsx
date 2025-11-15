@@ -11,7 +11,7 @@ import './UniversityPage.css'
 export const UniversityPage = () => {
   const { id } = useParams()
   const [university, setUniversity] = useState(null)
-  const [result, setResults] = useState([])
+  const [results, setResults] = useState([])
 
   //this'll be used for the second table when we're ready
   useEffect(() => { 
@@ -41,8 +41,9 @@ export const UniversityPage = () => {
       <h1 className='UniName'>{university.uni_name}</h1>
       <div id="iconBox"></div>
       <div className="search-bar-container">
-        <UniSearchBar setResults={setResults} />
-        <ClubList results={result} />
+        <UniSearchBar setResults={setResults}
+        university={university.uni_name}/>
+        <ClubList results={results} />
       </div>
     </div>
   )

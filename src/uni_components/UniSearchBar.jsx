@@ -5,7 +5,7 @@ import { supabase } from '../supabase'
 import {FaSearch} from 'react-icons/fa'
 import './UniSearchBar.css'
 
-export const UniSearchBar = ({ setResults }) => {
+export const UniSearchBar = ({ setResults, university}) => {
 
     
   const [input, setInput] = useState("")
@@ -16,12 +16,16 @@ export const UniSearchBar = ({ setResults }) => {
     console.log("useEffect running, input =", input);
 
     async function getClubs() {
+      console.log("university:", university);
+      console.log("input:", input);
 
         //these will change depending on the structure of the database, but for now they'll be like this
-      let query = supabase.from("uni_clubs").select("*");
+      let query = supabase.from("uni_clubs").select("*").eq("school", university); //next filter by school depending on the page we're on
+      console.log("Query before filters:", query);
 
       if (input.trim() !== "") {
-        query = query.ilike("Club", `%${input}%`);
+        query = query.ilike("club", `%${input}%`);
+        console.log("Filtering with ILIKE:", `%${input}%`);
       }
 
       const { data, error } = await query;
@@ -36,7 +40,7 @@ export const UniSearchBar = ({ setResults }) => {
     }
 
     getClubs();
-  }, [input, setResults]); //whenever the user input changes, we want to re-run this effect
+  }, [input]); //whenever the user input changes, we want to re-run this effect
   
   const handleChange = (value) => {
     setInput(value);
