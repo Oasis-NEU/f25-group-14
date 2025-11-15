@@ -37,7 +37,7 @@ export const UniversityPage = () => {
   if (!university) return <div>Loading...</div>
 
   return (
-    <div className="UniPage">
+    <div className="UniPage" id="header">
       <img src={NEULogo} width="120px" className="center"/>
       <IconBar/>
       <div className="search-bar-container">

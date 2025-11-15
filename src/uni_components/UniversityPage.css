@@ -6,13 +6,9 @@
   align-items: center;     /* centers horizontally */
   justify-content: flex-start;
   min-height: 100vh;
-  width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* align content toward the top */
-  align-items: center;
+  width: 100vw; 
   padding-top: 2vh; /* adjust this number (10–20vh) for spacing */
+  padding-bottom: 500px;
 }
 
 /* .spacer {
@@ -21,10 +17,11 @@
 
 .search-bar-container {
   padding-top: 1vh;
-  width: 61%;
+  width: 900px;
+  height: 30%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 .UniName {
@@ -46,6 +43,13 @@
   margin-bottom: 2vh;  
   margin-top: 1%;
   background-color: rgb(255, 255, 255);
+}
+
+#header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* .grid-container {
