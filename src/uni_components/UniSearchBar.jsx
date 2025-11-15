@@ -50,7 +50,7 @@ export const UniSearchBar = ({ setResults, university}) => {
     <div className="club-input-wrapper">
         <FaSearch className="search-icon" />
         <input
-            placeholder="Type to search..."
+            placeholder="Explore Clubs..."
             value={input}
             onChange={(e) => handleChange(e.target.value)}
         />
