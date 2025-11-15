@@ -1,6 +1,6 @@
 .icon-bar{
   width: 900px;
-  height: 110px;
+  height: 130px;
   background-color: rgb(255, 255, 255);
   margin-bottom: 1% auto 2vh auto;  
   margin-top: 1%;
@@ -8,14 +8,13 @@
   justify-content: space-around;
   display: flex;
   align-items: center;
-
   padding: 0 20px;
 }
 .icon-container.active::before {
   content: '';
   position: absolute;
-  width: 80px;       
-  height: 80px;
+  width: 90px;       
+  height: 90px;
   border-radius: 50%;
   background-color: rgb(255, 166, 166);
   z-index: 0; 
@@ -23,16 +22,19 @@
 .icon-container {
   position: relative;
   width: 72px;
-  height: 72px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.9s ease;
 }
 
-.icon-container.active {
-transform: scale(1.2); /* scale selected icon */
+.icon-container img {
+    transition: transform 0.9s ease;
+}
+
+.icon-container.active img {
+transform: scale(1.2);
 }
 
 .icon {
@@ -42,5 +44,10 @@ transform: scale(1.2); /* scale selected icon */
     object-fit: contain;
     cursor: pointer;
     z-index: 1;
-    transition: transform 0.9s ease;
     }
+
+.icon-label {
+margin-top: 15px;
+font-size: 0.8rem;
+color: #d14545;
+}
