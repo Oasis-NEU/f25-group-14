@@ -5,7 +5,7 @@ import './IconBar.css'
 
 export default function IconBar() {
     const icons = [
-        "favorites",
+        "heart",
         "fsl",
         "soccer",
         "art",
@@ -18,7 +18,7 @@ export default function IconBar() {
         {icons.map((name) => (
             <img
                 key={name}
-                src={'/assets/icons/${name}.png'}
+                src={'/src/assets/' + name + '.png'}
                 alt={name}
                 className="icon"
             />
