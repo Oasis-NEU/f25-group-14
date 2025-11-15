@@ -8,7 +8,7 @@ export const ClubGrid = ({ result }) => {
       <div className="club-info">
         <h2>{result.club}</h2>
         <p>{result.description}</p>
-        <p>Rating: {result.rating}</p>
+        <p>Rating: {"⭐".repeat(parseInt(result.rating))}</p>
       </div>
     </div>
   );
