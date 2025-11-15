@@ -52,3 +52,29 @@
   color: #b00;
 }
 
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  z-index: 50;
+  transition: transform 0.12s ease;
+  user-select: none;
+}
+
+/* cute pop animation */
+.heart-btn.pop {
+  transform: scale(1.35);
+}
+
+.heart-btn.pop {
+  animation: heart-pop 0.25s ease forwards;
+}
+
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}

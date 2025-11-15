@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
 import './ClubGrid.css';
+import heartEmpty from '/src/assets/empty_heart.png';
+import heartFull from '/src/assets/heart.png';
 
 export const ClubGrid = ({ result }) => {
   const [expanded, setExpanded] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const[animating, setAnimating] = useState(false);
   
+  const handleHeartClick = (e) => {
+    e.stopPropagation();
+    setAnimating(true);
+    setLiked(!liked);
+
+    setTimeout(() => {
+      setAnimating(false);
+    }, 250);
+
+  };
+
+
   const truncate = (text, wordLimit = 15) => {
     const words = text.split(" ");
     if (words.length <= wordLimit) return text;
@@ -15,6 +31,12 @@ export const ClubGrid = ({ result }) => {
         className={`club-card ${expanded ? 'expanded' : ''}`}
         onClick={() => setExpanded(!expanded)}
     >
+        <img
+        className={`heart-btn ${animating ? 'pop' : ''}`}
+        src={liked ? heartFull : heartEmpty}
+        onClick={handleHeartClick}
+      />
+
         <div className="club-img">🦝</div>
 
       
