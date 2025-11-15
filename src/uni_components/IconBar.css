@@ -1,19 +1,46 @@
 .icon-bar{
   width: 900px;
-  height: 80px;
+  height: 110px;
   background-color: rgb(255, 255, 255);
-  margin-bottom: 2vh;  
+  margin-bottom: 1% auto 2vh auto;  
   margin-top: 1%;
-  justify-content: center;
+  margin-bottom: 2%;
+  justify-content: space-around;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+
+  padding: 0 20px;
+}
+.icon-container.active::before {
+  content: '';
+  position: absolute;
+  width: 80px;       
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(255, 166, 166);
+  z-index: 0; 
+}
+.icon-container {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.9s ease;
+}
+
+.icon-container.active {
+transform: scale(1.2); /* scale selected icon */
 }
 
 .icon {
     width: 72px;
     height: 72px;
-    margin-right: 40px;
+    object-fit: containt;
     object-fit: contain;
     cursor: pointer;
+    z-index: 1;
+    transition: transform 0.9s ease;
     }

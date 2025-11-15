@@ -13,16 +13,23 @@ export default function IconBar() {
         "code",
         "tree"
     ];
-    return (
-        <div className="icon-bar">
-        {icons.map((name) => (
-            <img
+    const [active, setActive] = useState(null);
+
+return (
+    <div className="icon-bar">
+        {icons.map((name, idx) => (
+            <div
                 key={name}
-                src={'/src/assets/' + name + '.png'}
-                alt={name}
-                className="icon"
-            />
+                className={`icon-container ${active === idx ? 'active' : ''}`}
+                onClick={() => setActive(idx)}
+            >
+                <img
+                    src={'/src/assets/' + name + '.png'}
+                    alt={name}
+                    className="icon"
+                />
+            </div>
         ))}
-        </div>
+    </div>
     );
 }
