@@ -14,7 +14,16 @@ export const UniversityPage = () => {
   const [university, setUniversity] = useState(null)
   const [results, setResults] = useState([])
 
-  //this'll be used for the second table when we're ready
+    const fetchFavorites = async () => {
+    const { data, error } = await supabase
+      .from('demo_club_data')
+      .select('*')
+      .eq("favorite", true);
+
+    if (error) console.error(error);
+    else setResults(data);
+  };
+
   useEffect(() => { 
     async function fetchUniversity() {
       const { data, error } = await supabase
@@ -39,7 +48,7 @@ export const UniversityPage = () => {
   return (
     <div className="UniPage" id="header">
       <img src={NEULogo} width="120px" className="center"/>
-      <IconBar/>
+      <IconBar onFavoritesClick={fetchFavorites}/>
       <div className="search-bar-container">
         <UniSearchBar setResults={setResults}
         university={university.uni_name}/>

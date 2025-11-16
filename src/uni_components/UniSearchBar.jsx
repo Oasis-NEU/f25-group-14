@@ -16,11 +16,7 @@ export const UniSearchBar = ({ setResults, university}) => {
     console.log("useEffect running, input =", input);
 
     async function getClubs() {
-      console.log("university:", university);
-      console.log("input:", input);
-
-        //these will change depending on the structure of the database, but for now they'll be like this
-      let query = supabase.from("sample_club_data").select("*").eq("school", university).limit(100); //next filter by school depending on the page we're on
+      let query = supabase.from("demo_club_data").select("*").eq("school", university).limit(100); //next filter by school depending on the page we're on
       console.log("Query before filters:", query);
 
       if (input.trim() !== "") {
