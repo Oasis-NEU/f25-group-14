@@ -17,13 +17,11 @@ export const UniSearchBar = ({ setResults, university}) => {
 useEffect(() => {
     // if user clicked → animation stops forever
     if (stopped) return;
+    if (input.length > 0) return;
 
     // if user starts typing manually → stop animation
-    if (input.length > 0) {
-      setStopped(true);
-      setDisplayText("");
-      return;
-    }
+    
+    
 
     let i = 0;
     let deleting = false;
@@ -92,14 +90,12 @@ useEffect(() => {
     getClubs();
   }, [input]); //whenever the user input changes, we want to re-run this effect
   
-  const handleChange = (value) => {
-    setInput(value);
-  } 
 
   return (
     <div className="club-input-wrapper">
         <FaSearch className="search-icon" />
         <input
+            onClick={(handleClick)}
             value={input.length ==0 ? displayText:input}
             onChange={(e) => setInput(e.target.value)}
         />
