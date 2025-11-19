@@ -6,9 +6,13 @@
   align-items: center;     /* centers horizontally */
   justify-content: flex-start;
   min-height: 100vh;
-  width: 100vw; 
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align content toward the top */
+  align-items: center;
   padding-top: 2vh; /* adjust this number (10–20vh) for spacing */
-  padding-bottom: 500px;
 }
 
 /* .spacer {
@@ -17,11 +21,10 @@
 
 .search-bar-container {
   padding-top: 1vh;
-  width: 900px;
-  height: 30%;
+  width: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin: 0;
 }
 
 .UniName {
@@ -36,12 +39,36 @@
     float: auto
 }
 
-#iconBox{
-  width: 900px;
-  height: 80px;
-  background-color: white;
-  margin-bottom: 2vh;  
-  margin-top: 1%;
-  background-color: rgb(255, 255, 255);
+
+
+/* .grid-container {
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 20px;
+
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin-top: 3vh;
+
+  margin-bottom: 3vh;
+
+  padding: 0 20px;
+
 }
 
+.grid-box {
+
+  background-color: #888;
+
+  aspect-ratio: 1;
+
+  min-height: 200px;
+
+  border-radius: 8px;
+
+} */

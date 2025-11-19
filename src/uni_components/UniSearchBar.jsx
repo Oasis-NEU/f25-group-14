@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import { useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import { supabase } from '../supabase'
 
 import {FaSearch} from 'react-icons/fa'
@@ -9,10 +8,42 @@ export const UniSearchBar = ({ setResults, university}) => {
 
     
   const [input, setInput] = useState("")
-  const [clubs, setClubs] = useState([]); // Initialized as an empty array.
+  const [clubs, setClubs] = useState([]) 
+  const [placeholder, setPlaceholder] = useState("")
+  const [displayText, setDisplayText] = useState("");
 
+  const fullText = "Explore Clubs...";
 
-   useEffect(() => {
+  useEffect(() => {
+  // stop animation once user starts typing manually
+  if (input.length > 0) return;
+
+  let i = 0;
+  let deleting = false;
+
+  const interval = setInterval(() => {
+    if (!deleting) {
+      setDisplayText(fullText.slice(0, i));
+      i++;
+
+      if (i > fullText.length + 5) {
+        deleting = true;
+      }
+    } else {
+      setDisplayText(fullText.slice(0, i));
+      i--;
+
+      if (i < 0) {
+        deleting = false;
+        i = 0;
+      }
+    }
+  }, 90);
+
+  return () => clearInterval(interval);
+}, [input]);
+   
+    useEffect(() => {
     console.log("useEffect running, input =", input);
 
     async function getClubs() {
@@ -46,9 +77,8 @@ export const UniSearchBar = ({ setResults, university}) => {
     <div className="club-input-wrapper">
         <FaSearch className="search-icon" />
         <input
-            placeholder="Explore Clubs..."
-            value={input}
-            onChange={(e) => handleChange(e.target.value)}
+            value={input.length ==0 ? displayText:input}
+            onChange={(e) => setInput(e.target.value)}
         />
     </div>
   )
