@@ -1,6 +1,7 @@
 .club-card {
-  background: white;
-
+  background: rgb(231, 230, 230);
+  /*box-shadow: 5px 5px 8px */
+  /*border: 4px*/
   box-shadow: 1px 1px 2px #000000;
   padding: 20px;
   width: 400px;
@@ -8,6 +9,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  border-radius: 3%;
 
   transition:
     transform 0.35s ease,
