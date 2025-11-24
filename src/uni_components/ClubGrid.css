@@ -1,19 +1,16 @@
 .club-card {
   background: #f9f9f9;
-  /*box-shadow: 5px 5px 8px */
-  /*border:x 4px*/
   box-shadow: 1px 1px 2px #d3d3d3;
 
   padding: 20px;
-  width: 400px;
+  width: 30vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   border-radius: 3%;
   border: 1px solid rgb(162, 162, 162);
-
-
+ 
   transition:
     transform 0.35s ease,
     width 0.35s ease,

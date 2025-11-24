@@ -6,43 +6,31 @@
   align-items: center;     /* centers horizontally */
   justify-content: flex-start;
   min-height: 100vh;
-  width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* align content toward the top */
-  align-items: center;
-  padding-top: 2vh; /* adjust this number (10–20vh) for spacing */
-
+  width: 100%;
+  padding-top: 2vh;
+  box-sizing: border-box;
   color: rgb(0, 0, 0); /* Sets the text color to red */
 }
 .raleway-uni {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500; /* or whatever weight you want */
+  font-weight: 0 0 1rem 0; /* or whatever weight you want */
 
 }
 
 
-.search-bar-container {
-  padding-top: 1vh;
-  width: 50%;
+.header-wrapper {
+  width: 40vw;
+  min-width: 300px;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.8rem;
+
 }
 
-.UniName {
-  color: #e1281b; /* blue */
-  font-size: 3rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  margin: 0;
-}
-
-.center{
-    float: auto
-}
 
 
 

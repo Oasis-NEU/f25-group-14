@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { supabase } from '../supabase'
-import { UniSearchBar } from './UniSearchBar'
-import IconBar from './IconBar'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { supabase } from '../supabase';
+import { UniSearchBar } from './UniSearchBar';
+import IconBar from './IconBar';
 import './UniversityPage.css';
-import { ClubList } from './ClubList'
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Raleway:ital,wght@1,100..900&display=swap" rel="stylesheet"></link>
-
-import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
-import './UniversityPage.css'
+import { ClubList } from './ClubList';
+<link 
+  href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Raleway:ital,wght@1,100..900&display=swap" 
+  rel="stylesheet"
+/>;
+import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png';
+import './UniversityPage.css';
 
 export const UniversityPage = () => {
-  const { id } = useParams()
-  const [university, setUniversity] = useState(null)
-  const [results, setResults] = useState([])
+  const { id } = useParams();
+  const [university, setUniversity] = useState(null);
+  const [results, setResults] = useState([]);
 
-    const fetchFavorites = async () => {
+  const fetchFavorites = async () => {
     const { data, error } = await supabase
       .from('demo_club_data')
       .select('*')
@@ -25,40 +27,39 @@ export const UniversityPage = () => {
     else setResults(data);
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     async function fetchUniversity() {
       const { data, error } = await supabase
         .from('uni_names')
         .select('*')
         .eq('id', id)
-        .single()
-
+        .single();
+      
       if (error) {
-        console.error('Error fetching university:', error)
-        return
+        console.error('Error fetching university:', error);
+        return;
       }
 
-      setUniversity(data)
+      setUniversity(data);
     }
 
-    fetchUniversity()
-  }, [id])
+    fetchUniversity();
+  }, [id]);
 
-  if (!university) return <div>Loading...</div>
+  if (!university) return <div>Loading...</div>;
 
   return (
     <div className="UniPage" id="header">
-     <h1 className="raleway-uni">Northeastern</h1>
-      <IconBar onFavoritesClick={fetchFavorites}/>
-      <div className="search-bar-container">
-        <UniSearchBar setResults={setResults}
-        university={university.uni_name}/>
+      <h1 className="raleway-uni">Northeastern</h1>
+      <IconBar onFavoritesClick={fetchFavorites} />
+
+        <UniSearchBar setResults={setResults} university={university.uni_name} />
         <ClubList results={results} />
       </div>
-    </div>
-  )
-}
-
+  );
+};
+      
+      
       {/*
       <Routes>
         <Route

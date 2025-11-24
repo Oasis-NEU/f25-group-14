@@ -1,23 +1,19 @@
 .club-input-wrapper {
-    background-color: white;
-    width: 900px;
-    
+    width: 80vw;
+    max-width: 900px;
+    height: 3rem; 
     border-radius: 35px; 
-    height: 3rem;
+    background-color: white;
     padding: 0 10px;
-    box-shadow: 0px 0px 4px #bcbcbc;
-    border: 2px solid black;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
+
+    margin-top: 1%;
     margin-bottom: 2%;
 
-}
+    display: flex;
+    align-items: center;
 
-input::placeholder {
-    color: rgb(208, 81,81);
-    opacity: 1;
-    border-radius: 25px;
+    box-shadow: 0px 0px 4px #bcbcbc;
+    border: 2px solid black;
 }
 
 input {
@@ -30,6 +26,14 @@ input {
     color: rgb(208, 81, 81);
 
 }
+
+input::placeholder {
+    color: rgb(208, 81,81);
+    opacity: 1;
+    border-radius: 25px;
+}
+
+
 
 input:focus {
     outline: none;

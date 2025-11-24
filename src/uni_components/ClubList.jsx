@@ -13,8 +13,8 @@ export const ClubList = ({ results }) => {
 
   return (
     <div className="clubs-list">
-      {results.map((result) => (
-        <ClubGrid key={result.id} result={result} />
+      {results.map((club) => (
+        <ClubGrid key={club.id} result={club} />
       ))}
     </div>
   );
