@@ -5,6 +5,7 @@ import { UniSearchBar } from './UniSearchBar'
 import IconBar from './IconBar'
 import './UniversityPage.css';
 import { ClubList } from './ClubList'
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Raleway:ital,wght@1,100..900&display=swap" rel="stylesheet"></link>
 
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png'
 import './UniversityPage.css'
@@ -47,7 +48,7 @@ export const UniversityPage = () => {
 
   return (
     <div className="UniPage" id="header">
-      <img src={NEULogo} width="120px" className="center"/>
+     <h1 className="raleway-uni">Northeastern</h1>
       <IconBar onFavoritesClick={fetchFavorites}/>
       <div className="search-bar-container">
         <UniSearchBar setResults={setResults}

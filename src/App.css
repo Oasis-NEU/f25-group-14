@@ -13,7 +13,7 @@ html, body {
   display: flex;
   justify-content: center;  /* horizontally center everything inside .App */
   align-items: flex-start;  /* keep content at top; change to center to center vertically */
-  background-color: #e1e1e1;
+  background-color: #f9f9f9;
   overflow-x: hidden;
 }
 

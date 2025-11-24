@@ -1,8 +1,9 @@
 .club-card {
-  background: rgb(225, 225, 225);
+  background: #f9f9f9;
   /*box-shadow: 5px 5px 8px */
-  /*border: 4px*/
-  box-shadow: 1px 1px 2px #9f9f9f;
+  /*border:x 4px*/
+  box-shadow: 1px 1px 2px #d3d3d3;
+
   padding: 20px;
   width: 400px;
   display: flex;
@@ -10,6 +11,8 @@
   align-items: center;
   gap: 1rem;
   border-radius: 3%;
+  border: 1px solid rgb(162, 162, 162);
+
 
   transition:
     transform 0.35s ease,
@@ -32,7 +35,8 @@
   width: 70vw;
   height: 50vh;
   justify-content: flex-start;
-  padding: 40px;
+  padding: 20px;
+  border: 1px solid rgb(172, 172, 172);
   box-shadow: 0 20px 80px rgba(0,0,0,0.4), 
             0 0 0 9999px rgba(0,0,0,0.65);
   z-index: 9999;

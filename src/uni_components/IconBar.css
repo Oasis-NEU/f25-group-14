@@ -1,7 +1,7 @@
 .icon-bar{
   width: 900px;
   height: 130px;
-  background-color: rgb(255, 255, 255);
+  background-color: #f4f4f5;
   margin-bottom: 1% auto 2vh auto;  
   display: flex;
   margin-top: 1%;
@@ -10,6 +10,7 @@
   align-items: center;
   padding: 0 0px;
   box-sizing: border-box;
+  box-shadow: 0.5px 0.5px 1px #d3d3d3;
  
 }
 .icon-container.active::before {
