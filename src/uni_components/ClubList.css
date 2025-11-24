@@ -1,7 +1,7 @@
 .clubs-list {
   display: grid;
   grid-template-columns: repeat(2, 0.5fr);
-  gap: 15px;
+  gap: 25px;
   width: 80vw;
   max-width: 1000px;
   margin: 0 auto 2rem auto;

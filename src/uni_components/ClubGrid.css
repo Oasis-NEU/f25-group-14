@@ -8,7 +8,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
-  border-radius: 3%;
+  border-radius: 15px;
   border: 1px solid rgb(162, 162, 162);
  
   transition:
@@ -33,7 +33,7 @@
   height: 50vh;
   justify-content: flex-start;
   padding: 20px;
-  border: 1px solid rgb(172, 172, 172);
+  border: 3px solid rgb(187, 187, 187);
   box-shadow: 0 20px 80px rgba(0,0,0,0.4), 
             0 0 0 9999px rgba(0,0,0,0.65);
   z-index: 9999;
