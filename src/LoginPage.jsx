@@ -1,14 +1,16 @@
-import './LoginPage.css'
-import { useState } from 'react'
+import Login from "./Login";
+import Logout from "./Logout";
+import "./LoginPage.css";
 
 function LoginPage() {
+
   return (
-    // JSX markup goes here
-    <div>
-      <h1>Welcome to the login page</h1>
+    <div className="LoginPage">
+      <h2>Login</h2>
+      <Login/>
+      <Logout/>
     </div>
   );
 }
 
-export default LoginPage
-
+export default LoginPage;
