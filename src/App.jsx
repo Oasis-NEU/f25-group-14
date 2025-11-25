@@ -1,15 +1,24 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
 import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
 import { UniversityPage } from './uni_components/UniversityPage'
+import LoginPage from './LoginPage'
 
 function App() {
   const [results, setResults] = useState([])
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/LoginPage')
+  }
 
   return (
     <div className="App">
+      <div className="login-button">
+        <button onClick={handleLogin}>log in</button>
+      </div>
       <Routes>
         <Route
           path="/"
@@ -28,6 +37,7 @@ function App() {
           }
         />
         <Route path="/university/:id" element={<UniversityPage />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
       </Routes>
     </div>
   )
