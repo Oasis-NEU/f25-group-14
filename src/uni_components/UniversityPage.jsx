@@ -10,12 +10,23 @@ import { ClubList } from './ClubList';
   rel="stylesheet"
 />;
 import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png';
-import './UniversityPage.css';
 
 export const UniversityPage = () => {
   const { id } = useParams();
   const [university, setUniversity] = useState(null);
   const [results, setResults] = useState([]);
+
+  const [isDocked, setIsDocked] = useState(false);
+  
+    useEffect(() => {
+    const handleScroll = () => {
+      const triggerPoint = 180;
+      setIsDocked(window.scrollY > triggerPoint);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const fetchFavorites = async () => {
     const { data, error } = await supabase
@@ -49,13 +60,18 @@ export const UniversityPage = () => {
   if (!university) return <div>Loading...</div>;
 
   return (
-    <div className="UniPage" id="header">
+    <div className="UniPage">
       <h1 className="raleway-uni">Northeastern</h1>
-      <IconBar onFavoritesClick={fetchFavorites} />
 
+      <div className={`dock-wrapper ${isDocked ? 'docked' : ''}`}>
+        <IconBar onFavoritesClick={fetchFavorites} />
         <UniSearchBar setResults={setResults} university={university.uni_name} />
-        <ClubList results={results} />
+
+        {isDocked && <div className="glass-bar" />}
       </div>
+
+      <ClubList results={results} />
+    </div>
   );
 };
       

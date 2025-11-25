@@ -16,11 +16,11 @@ function App() {
           element={
             <div className="search-bar-container">
              <h2 className="welcome-text">
-              Wel
+              Club
               <span className="raccoon-wrapper">
               <img src="/raccoon.png" alt="raccoon" className="raccoon-icon" />
               </span>
-              <span className="come-text">come</span>
+              <span className="come-text">Search</span>
               </h2>
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />

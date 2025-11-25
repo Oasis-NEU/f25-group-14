@@ -1,5 +1,5 @@
 .club-input-wrapper {
-    width: 80vw;
+    width: 90vw;
     max-width: 900px;
     height: 3rem; 
     border-radius: 35px; 
@@ -7,7 +7,7 @@
     padding: 0 10px;
 
     margin-top: 1%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 
     display: flex;
     align-items: center;

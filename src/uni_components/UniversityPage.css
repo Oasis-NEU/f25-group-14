@@ -1,4 +1,5 @@
 /* UniversityPage.css */
+
 .UniPage {
   background-color: #f9f9f9;
   display: flex;
@@ -31,6 +32,50 @@
 
 }
 
+.dock-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  transition: all 0.35s ease;
+}
+
+/* when docking to bottom */
+.dock-wrapper.docked {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding-bottom: 0.7rem;
+  scale: 0.98;
+}
+
+/* stops page from jumping up */
+.dock-spacer {
+  height: 170px; /* adjust depending on icon bar height */
+}
+
+/* wrapper for search bar only */
+.club-input-wrapper-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.glass-bar {
+  position: absolute;
+  bottom: 30;       /* slightly below the dock */
+  width: 90vw;
+  height: 210px;
+
+  background: #f4f4f5;
+  border-radius: 20px;
+  z-index: -1;
+  box-shadow: 0px 0px 5px #828282;
+}
 
 
 
