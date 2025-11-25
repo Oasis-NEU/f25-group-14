@@ -42,3 +42,9 @@ html, body {
   display: flex;
   align-items: center;
 }
+
+.login-button {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
