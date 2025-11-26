@@ -19,7 +19,7 @@ html, body {
 
 /* Keep the search layout big and wide */
 .search-bar-container {
-  padding-top: 20vh;
+  padding-top: -30vh;
   width: 70%;
   max-width: 1200px;
   margin: 0 auto;

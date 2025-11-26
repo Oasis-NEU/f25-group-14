@@ -4,6 +4,9 @@ import heartEmpty from '/src/assets/empty_heart.png';
 import heartFull from '/src/assets/full_heart.png';
 import { supabase } from '../supabase';
 
+
+
+
 export const ClubGrid = ({ result }) => {
   const [expanded, setExpanded] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -57,16 +60,20 @@ export const ClubGrid = ({ result }) => {
 
       <div className="club-info">
         <h2>{result.club_name}</h2>
-
-        <p>
+        <h3>
           {expanded ? result.club_description : truncate(result.club_description)}
-        </p>
-
-        <p>
-          <strong>Rating: </strong>
-          {"⭐".repeat(parseInt(result.rating))}
-        </p>
+        </h3>
       </div>
+  
+       
+
+
+      
     </div>
   );
 };
+
+/* <p>
+          <strong>Rating: </strong>
+          {"⭐".repeat(parseInt(result.rating))}
+        </p> */

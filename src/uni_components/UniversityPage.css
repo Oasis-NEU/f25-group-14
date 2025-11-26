@@ -15,8 +15,7 @@
 .raleway-uni {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 0 0 1rem 0; /* or whatever weight you want */
-
+  font-weight: 2 1 0.9rem 1; /* or whatever weight you want */
 }
 
 
@@ -39,15 +38,19 @@
   gap: 0.75rem;
   align-items: center;
   width: 100%;
-  transition: all 0.35s ease;
+  
+  animation: slideDown 1 linear both;
+  
+  animation-timeline: scroll();
+  animation-range: 0% 100%;
+  
+  transition: scale 1.4s ease;
 }
 
 /* when docking to bottom */
 .dock-wrapper.docked {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 999;
   padding-bottom: 0.7rem;
   scale: 0.98;

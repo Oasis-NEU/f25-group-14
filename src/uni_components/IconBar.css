@@ -54,6 +54,7 @@ transform: scale(1.1);
 
 .icon-label {
 margin-top: 8px;
-font-size: 0.8rem;
+font-family: "Inter", sans-serif;
+font-size: 0.7rem;
 color: #d14545;
 }
