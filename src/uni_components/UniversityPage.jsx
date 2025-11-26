@@ -15,7 +15,7 @@ export const UniversityPage = () => {
   const { id } = useParams();
   const [university, setUniversity] = useState(null);
   const [results, setResults] = useState([]);
-
+  const [favActive, setFavActive] = useState(false);
   const [isDocked, setIsDocked] = useState(false);
   
     useEffect(() => {
@@ -29,13 +29,28 @@ export const UniversityPage = () => {
   }, []);
 
   const fetchFavorites = async () => {
-    const { data, error } = await supabase
-      .from('demo_club_data')
-      .select('*')
-      .eq("favorite", true);
+    if(!favActive) {
+      console.log("fav on")
+      const { data, error } = await supabase
+        .from('demo_club_data')
+        .select('*')
+        .eq("favorite", true);
+      
+      setFavActive(true)
+      if (error) console.error(error);
+      else setResults(data);
+    }
+    else{
+      console.log("fav off")
+      setFavActive(false)
+      const { data, error } = await supabase
+        .from('demo_club_data')
+        .select('*')
 
-    if (error) console.error(error);
-    else setResults(data);
+      if (error) console.error(error);
+      else setResults(data);
+    }
+
   };
 
   useEffect(() => {
