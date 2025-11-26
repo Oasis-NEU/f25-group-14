@@ -30,7 +30,6 @@ export const UniversityPage = () => {
 
   const fetchFavorites = async () => {
     if(!favActive) {
-      console.log("fav on")
       const { data, error } = await supabase
         .from('demo_club_data')
         .select('*')
@@ -40,13 +39,14 @@ export const UniversityPage = () => {
       if (error) console.error(error);
       else setResults(data);
     }
+    
     else{
       console.log("fav off")
-      setFavActive(false)
       const { data, error } = await supabase
         .from('demo_club_data')
         .select('*')
 
+      setFavActive(false)
       if (error) console.error(error);
       else setResults(data);
     }
