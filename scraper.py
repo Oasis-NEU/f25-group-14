@@ -1,3 +1,16 @@
+"""
+Current list of items to resolve
+- Whitespace:
+    Wait until later once the description data is suffiecntly cleaned to avoid possible errors.
+- Getting images:
+List of images scraped from site- have first element be the club logo, if one provided. Other images, if availible, will be scraped from the site.
+Problems so far: 
+    - Clubs have a ton of images right now and I don't know which ones to pick out
+- Contact Info:
+    There are usually locations, insta links, maybe even a website. Only grab if there is data. Display as "More web info" as the information ranges from google
+    forms to actual websites.
+"""
+
 from typing import Any, Optional
 import time
 import json
@@ -17,15 +30,18 @@ opts.add_argument("--disable-renderer-backgrounding")
 opts.add_argument("--disable-backgrounding-occluded-windows")
 opts.add_argument("--no-sandbox")
 
-club_data: dict[str, dict[str, Any]] = {}
+#email, insta, and external web link
+contact_info: list[Optional[str]] = []
+#currently: club title, followed by descrption and emails and image urls
+club_data: dict[str, dict[str, Optional[None]]] = {} 
 
 driver = webdriver.Chrome(options=opts)
-
 waiting_time = WebDriverWait(driver, 10)
+    
 
-driver.get("https://neu.campuslabs.com/engage/organizations")
+
+driver.get("https://wit.campuslabs.com/engage/organizations")
 print(driver.title)
-driver.save_screenshot("page.png")
 button_element = driver.find_element(By.XPATH, "//div[@class='outlinedButton']//button[contains(., 'Load More')]")
 print(button_element.text)
 
@@ -72,6 +88,7 @@ for i in range(len(href_list)):
     #attempt to grab image_url
     try:
         image_url = driver.find_element(By.XPATH, "//img").get_attribute("src")
+        
     except(NoSuchElementException):
         print("No url found")
     #attempt to grab email
@@ -85,13 +102,12 @@ for i in range(len(href_list)):
 
     #each club is a nested dictionary of certain info with the club name as the key
     club_data[club_name] = {'description': description, 'image_url': image_url, 'email': email}
-    
+
 #stop driver
 driver.quit()
 #test to see if the data is good
 print(club_data)
 
 #write into a json file
-with open('club_data.json', 'w') as f:
-    json.dump(club_data, f)
-
+with open('other_club_data.json', 'w') as f:
+    json.dump(club_data, f, ensure_ascii=False)
