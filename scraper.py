@@ -1,26 +1,38 @@
 """
 Current list of items to resolve
-- Whitespace:
-    Wait until later once the description data is suffiecntly cleaned to avoid possible errors.
-- Getting images:
-List of images scraped from site- have first element be the club logo, if one provided. Other images, if availible, will be scraped from the site.
-Problems so far: 
-    - Clubs have a ton of images right now and I don't know which ones to pick out
-- Contact Info:
-    There are usually locations, insta links, maybe even a website. Only grab if there is data. Display as "More web info" as the information ranges from google
-    forms to actual websites.
+* Whitespace:
+    - Wait until later once the description data is suffiecntly cleaned to avoid possible errors.
+* Getting images:
+    - List of images scraped from site- have first element be the club logo, if one provided. Other images, if availible, will be scraped from the site.
+    * Problems so far: 
+        - Clubs have a ton of images right now and I don't know which ones to pick out
 """
 
 from dataclasses import dataclass
 from typing import Any, Optional
-import time
-import json
+import time, json
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+
+def get_contact_info(driver: webdriver) -> list[Optional[str]]:
+    #returns a list of all possible external contact redirects on the page
+    return_list: list[Optional[str]] = [None, None, None]
+    try:
+        elements = driver.find_elements(By.XPATH, "//a[contains(@aria-label, 'Visit our ')]") #find external site, if one availible
+    except(NoSuchElementException):
+        print("Could not find external site")
+    for i in range(len(elements)):
+        if "https://www" not in elements[i].get_attribute("href"):
+            return_list[0] = elements[i].get_attribute("href")
+        elif "instagram" in elements[i].get_attribute("href"):
+            return_list[1] = elements[i].get_attribute("href")
+        elif "facebook" in elements[i].get_attribute("href"):
+            return_list[2] = elements[i].get_attribute("href")
+    return return_list
 
 opts = Options()
 opts.add_argument("--disable-dev-shm-usage")
@@ -38,17 +50,14 @@ class Club():
     description: str
     logo_url: Optional[str]
     email: Optional[str]
-    """
     instagram: Optional[str]
+    facebook: Optional[str]
     external_link: Optional[str]
-    """
 
 club_list: list[Club] = []
 
 driver = webdriver.Chrome(options=opts)
 waiting_time = WebDriverWait(driver, 10)
-    
-
 
 driver.get("https://neu.campuslabs.com/engage/organizations")
 print(driver.title)
@@ -71,7 +80,7 @@ while True:
     except(TimeoutException, NoSuchElementException):
         print("Page done loading")
         break
-        
+
 #store every elements href because storing the webelements would take too much memory and cause crashes
 container = driver.find_element(By.ID, "org-search-results")
 href_list = [element.get_attribute('href') for element in container.find_elements(By.TAG_NAME, "a")]
@@ -103,19 +112,23 @@ for i in range(len(href_list)):
     except(NoSuchElementException):
         print("No email found")
 
+    links: Optional[str] = get_contact_info(driver)
+
     #replace every \n with a space
     description = description.replace('\n\n', " ").replace('\n', " ")
 
     #create new club object and append to list
-    club_list.append(Club(club_name, description, logo_url, email))
+    club_list.append(Club(club_name, description, logo_url, email, links[0], links[1], links[2]))
 
 #stop driver
 driver.quit()
 
+
 #test to see if the data is good
 print(club_list)
 
-club_data: list[list[Optional[str]]] = [[club.title, club.description, str(club.logo_url), str(club.email)] for club in club_list]
+club_data: list[list[Optional[str]]] = [[club.title, club.description, club.logo_url, club.email,
+                                         club.instagram, club.facebook, club.external_link] for club in club_list]
 
 #write into a json file
 with open('northeastern_data.json', 'w') as f:
