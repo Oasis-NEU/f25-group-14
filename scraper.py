@@ -11,6 +11,7 @@ Problems so far:
     forms to actual websites.
 """
 
+from dataclasses import dataclass
 from typing import Any, Optional
 import time
 import json
@@ -30,17 +31,26 @@ opts.add_argument("--disable-renderer-backgrounding")
 opts.add_argument("--disable-backgrounding-occluded-windows")
 opts.add_argument("--no-sandbox")
 
-#email, insta, and external web link
-contact_info: list[Optional[str]] = []
-#currently: club title, followed by descrption and emails and image urls
-club_data: dict[str, dict[str, Optional[None]]] = {} 
+#before I was just using dictionaries. Now I have to use a dataclass because there is too much complex data
+@dataclass
+class Club():
+    title: str
+    description: str
+    logo_url: Optional[str]
+    email: Optional[str]
+    """
+    instagram: Optional[str]
+    external_link: Optional[str]
+    """
+
+club_list: list[Club] = []
 
 driver = webdriver.Chrome(options=opts)
 waiting_time = WebDriverWait(driver, 10)
     
 
 
-driver.get("https://wit.campuslabs.com/engage/organizations")
+driver.get("https://neu.campuslabs.com/engage/organizations")
 print(driver.title)
 button_element = driver.find_element(By.XPATH, "//div[@class='outlinedButton']//button[contains(., 'Load More')]")
 print(button_element.text)
@@ -61,7 +71,6 @@ while True:
     except(TimeoutException, NoSuchElementException):
         print("Page done loading")
         break
-
         
 #store every elements href because storing the webelements would take too much memory and cause crashes
 container = driver.find_element(By.ID, "org-search-results")
@@ -74,11 +83,8 @@ for i in range(len(href_list)):
     driver.get(href_list[i])
     print("Navigated to listing!")
 
-    #wait for site to load
-    #time.sleep(1)
-
     #define all needed variables here. email and image_url are optional because not every club has both
-    image_url: Optional[str] = None
+    logo_url: Optional[str] = None
     email: Optional[str] = None
 
     #wait until the h1 element has loaded before grabbing. This ensures that the rest of the page likely has loaded too
@@ -87,7 +93,7 @@ for i in range(len(href_list)):
     description = waiting_time.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.bodyText-large.userSupplied"))).text
     #attempt to grab image_url
     try:
-        image_url = driver.find_element(By.XPATH, "//img").get_attribute("src")
+        logo_url = driver.find_element(By.XPATH, "//img").get_attribute("src")
         
     except(NoSuchElementException):
         print("No url found")
@@ -100,14 +106,17 @@ for i in range(len(href_list)):
     #replace every \n with a space
     description = description.replace('\n\n', " ").replace('\n', " ")
 
-    #each club is a nested dictionary of certain info with the club name as the key
-    club_data[club_name] = {'description': description, 'image_url': image_url, 'email': email}
+    #create new club object and append to list
+    club_list.append(Club(club_name, description, logo_url, email))
 
 #stop driver
 driver.quit()
+
 #test to see if the data is good
-print(club_data)
+print(club_list)
+
+club_data: list[list[Optional[str]]] = [[club.title, club.description, str(club.logo_url), str(club.email)] for club in club_list]
 
 #write into a json file
-with open('other_club_data.json', 'w') as f:
+with open('northeastern_data.json', 'w') as f:
     json.dump(club_data, f, ensure_ascii=False)
