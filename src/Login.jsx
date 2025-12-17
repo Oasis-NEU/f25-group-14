@@ -3,6 +3,7 @@ import { useGlobalStore } from "./store";
 
 
 function Login() {
+  const GlobalValue = useGlobalStore((state) => state.GlobalValue);
   const setGlobalValue = useGlobalStore((state) => state.setGlobalValue);
 
   const handleLoginSuccess = (credentialResponse) => {
@@ -11,9 +12,6 @@ function Login() {
     const payload = JSON.parse(atob(token.split(".")[1]));
     console.log("User Info:", payload);
     setGlobalValue(true)
-
-    const globalValue = useGlobalStore((state) => state.globalValue);
-    console.log(globalValue)
   };
 
   const handleLoginError = () => {
