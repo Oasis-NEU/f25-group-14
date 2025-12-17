@@ -7,6 +7,9 @@ function Logout() {
     localStorage.removeItem("google_credential");
     console.log("User logged out!");
     setGlobalValue(false)
+
+    globalValue = useGlobalStore((state) => state.globalValue);
+    console.log(globalValue)
   };
 
   return (

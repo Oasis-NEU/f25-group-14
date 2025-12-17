@@ -11,6 +11,9 @@ function Login() {
     const payload = JSON.parse(atob(token.split(".")[1]));
     console.log("User Info:", payload);
     setGlobalValue(true)
+
+    const globalValue = useGlobalStore((state) => state.globalValue);
+    console.log(globalValue)
   };
 
   const handleLoginError = () => {
