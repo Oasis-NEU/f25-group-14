@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useGlobalStore = create((set) => ({
   globalValue: false,
 
-  setGlobalValue: (newValue) => set({ globalValue: newValue }),
+  setGlobalValue: (newValue) => set({ GlobalValue: newValue }),
 }));
 
 /*
