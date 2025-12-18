@@ -21,7 +21,6 @@ useEffect(() => {
 
     // if user starts typing manually → stop animation
     
-    
 
     let i = 0;
     let deleting = false;
@@ -89,7 +88,7 @@ useEffect(() => {
 
     getClubs();
   }, [input]); //whenever the user input changes, we want to re-run this effect
-  
+
 
   return (
     <div className="club-input-wrapper">

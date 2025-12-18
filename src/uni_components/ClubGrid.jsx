@@ -5,8 +5,6 @@ import heartFull from '/src/assets/full_heart.png';
 import { supabase } from '../supabase';
 
 
-
-
 export const ClubGrid = ({ result }) => {
   const [expanded, setExpanded] = useState(false);
   const [liked, setLiked] = useState(false);
