@@ -35,7 +35,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  font-size: 8rem; /* whatever you used before */
+  font-size: 6rem; /* whatever you used before */
 }
 
 .raccoon-wrapper {

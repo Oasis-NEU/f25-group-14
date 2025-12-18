@@ -8,6 +8,7 @@
   flex-direction: row;
   align-items: center;
   gap: 2.5rem;
+  min-width: 250px;
   border-radius: 15px;
   border: 1px solid rgb(162, 162, 162);
  
@@ -53,7 +54,7 @@
 
  .club-info h2 {
   margin: 0;
-  color: rgb(221, 6, 6);
+  color: rgb(206, 0, 0);
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;

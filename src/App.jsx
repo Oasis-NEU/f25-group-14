@@ -25,11 +25,11 @@ function App() {
           element={
             <div className="search-bar-container">
              <h2 className="welcome-text">
-              Club
+              Back
               <span className="raccoon-wrapper">
               <img src="/raccoon.png" alt="raccoon" className="raccoon-icon" />
               </span>
-              <span className="come-text">Search</span>
+              <span className="come-text">     yard</span>
               </h2>
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />

@@ -7,6 +7,7 @@
   align-items: center;     /* centers horizontally */
   justify-content: flex-start;
   min-height: 100vh;
+  min-width: 800px;
   width: 100%;
   padding-top: 2vh;
   box-sizing: border-box;
