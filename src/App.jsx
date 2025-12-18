@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate} from 'react-router-dom'
-import { useState } from 'react'
+import { createContext, useState, useContext } from 'react'
 import './App.css'
 import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
