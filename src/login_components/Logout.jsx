@@ -1,4 +1,4 @@
-import { useGlobalStore } from "./store";
+import { useGlobalStore } from "../store";
 
 function Logout() {
   const GlobalValue = useGlobalStore((state) => state.GlobalValue);
