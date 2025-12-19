@@ -1,24 +1,22 @@
 import { Routes, Route, useNavigate} from 'react-router-dom'
-import { createContext, useState, useContext } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
 import { UniversityPage } from './uni_components/UniversityPage'
-import LoginPage from './LoginPage'
+import LoginMorph from "./LoginMorph";
 
 function App() {
   const [results, setResults] = useState([])
-  const navigate = useNavigate();
+  const [loginOpen, setLoginOpen] = useState(false);
 
-  const handleLogin = () => {
-    navigate('/LoginPage')
-  }
+  
 
   return (
     <div className="App">
-      <div className="login-button">
-        <button onClick={handleLogin}>log in</button>
-      </div>
+
+        <LoginMorph open={loginOpen} setOpen={setLoginOpen} />
+      
       <Routes>
         <Route
           path="/"
@@ -37,10 +35,9 @@ function App() {
           }
         />
         <Route path="/university/:id" element={<UniversityPage />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
       </Routes>
     </div>
-  )
+  );
 }
 
 export default App

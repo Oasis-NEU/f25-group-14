@@ -1,7 +1,7 @@
 .icon-bar{
   width: 90vw;
   max-width: 900px;
-  height: 130px;
+  height: 100px;
   background-color: #f4f4f5;
   display: flex;
   justify-content: space-evenly;
@@ -29,8 +29,8 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -55%);
-  width: 90px;       
-  height: 90px;
+  width: 70px;       
+  height: 70px;
   border-radius: 50%;
   background-color: rgb(255, 166, 166);
   z-index: 0; 
@@ -45,8 +45,8 @@ transform: scale(1.1);
 }
 
 .icon {
-    width: 72px;
-    height: 72px;
+    width: 52px;
+    height: 52px;
     object-fit: containt;
     object-fit: contain;
     cursor: pointer;
@@ -54,7 +54,7 @@ transform: scale(1.1);
     }
 
 .icon-label {
-margin-top: 8px;
+margin-top: 14px;
 font-family: "Inter", sans-serif;
 font-size: 0.7rem;
 color: #d14545;

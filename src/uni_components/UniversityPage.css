@@ -16,7 +16,9 @@
 .raleway-uni {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 2 1 0.9rem 1; /* or whatever weight you want */
+  font-weight: 2 1 0.9rem 1;
+  font-size: 60px;
+  margin-bottom: 10px;
 }
 
 
