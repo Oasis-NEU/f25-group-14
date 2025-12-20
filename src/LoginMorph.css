@@ -5,7 +5,7 @@
 /* --- Small state: circular button --- */
 .login-icon {
   position: fixed;
-  top: 12px;
+  top: 15px;
   right: 12px;
 
   width: 70px;
@@ -13,8 +13,7 @@
   padding: 0;
 
   border-radius: 50%;
-  border: none;
-  background: rgb(175, 174, 174);
+  border: 1px solid  rgb(175, 174, 174);
   cursor: pointer;
 
   display: flex;
@@ -62,7 +61,7 @@
 
 /* --- Heading --- */
 .login-card h2 {
-font-family: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin-bottom: 1%;
   font-size: 2rem;
   font-weight: 6=800;

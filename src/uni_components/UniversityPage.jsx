@@ -81,8 +81,6 @@ export const UniversityPage = () => {
       <div className={`dock-wrapper ${isDocked ? 'docked' : ''}`}>
         <IconBar onFavoritesClick={fetchFavorites} />
         <UniSearchBar setResults={setResults} university={university.uni_name} />
-
-        {isDocked && <div className="glass-bar" />}
       </div>
 
       <ClubList results={results} />
