@@ -5,7 +5,6 @@ import './UniSearchBar.css'
 
 export const UniSearchBar = ({ setResults, university}) => {
 
-    
   const [input, setInput] = useState("")
   const [clubs, setClubs] = useState([]) 
   const [displayText, setDisplayText] = useState("")
