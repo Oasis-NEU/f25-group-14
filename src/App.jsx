@@ -4,14 +4,12 @@ import './App.css'
 import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
 import { UniversityPage } from './uni_components/UniversityPage'
-import LoginMorph from "./LoginMorph";
+import LoginMorph from "./login_components/LoginMorph";
 
 function App() {
   const [results, setResults] = useState([])
   const [loginOpen, setLoginOpen] = useState(false);
-
   
-
   return (
     <div className="App">
 

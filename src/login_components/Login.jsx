@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { useGlobalStore } from "./store";
+import { useGlobalStore } from "../store";
 
 
 function Login() {
