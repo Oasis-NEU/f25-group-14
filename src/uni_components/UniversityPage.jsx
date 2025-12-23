@@ -9,7 +9,6 @@ import { ClubList } from './ClubList';
   href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Raleway:ital,wght@1,100..900&display=swap" 
   rel="stylesheet"
 />;
-import NEULogo from '/src/uni_components/Imgs/NEU_Logo.png';
 
 export const UniversityPage = () => {
   const { id } = useParams();

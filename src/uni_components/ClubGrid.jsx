@@ -3,6 +3,7 @@ import './ClubGrid.css';
 import heartEmpty from '/src/assets/empty_heart.png';
 import heartFull from '/src/assets/full_heart.png';
 import { supabase } from '../supabase';
+import { Link } from "react-router-dom";
 
 
 export const ClubGrid = ({ result }) => {
@@ -62,11 +63,7 @@ export const ClubGrid = ({ result }) => {
           {expanded ? result.club_description : truncate(result.club_description)}
         </h3>
       </div>
-  
-       
-
-
-      
+      <Link to="/reviews/:id">Click here to see reviews</Link>
     </div>
   );
 };

@@ -4,7 +4,8 @@ import './App.css'
 import { SearchBar } from './components/SearchBar'
 import { SearchResultsList } from './components/SearchResultsList'
 import { UniversityPage } from './uni_components/UniversityPage'
-import LoginMorph from "./login_components/LoginMorph";
+import LoginMorph from "./login_components/LoginMorph"
+import ReviewPage from "./review_components/ReviewPage"
 
 function App() {
   const [results, setResults] = useState([])
@@ -33,6 +34,7 @@ function App() {
           }
         />
         <Route path="/university/:id" element={<UniversityPage />} />
+        <Route path="/reviews/:id" element={<ReviewPage />} />
       </Routes>
     </div>
   );
