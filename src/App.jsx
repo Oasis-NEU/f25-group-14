@@ -10,7 +10,7 @@ import ReviewPage from "./review_components/ReviewPage"
 function App() {
   const [results, setResults] = useState([])
   const [loginOpen, setLoginOpen] = useState(false);
-  
+  //research why /:id doesn't work for da code
   return (
     <div className="App">
 
