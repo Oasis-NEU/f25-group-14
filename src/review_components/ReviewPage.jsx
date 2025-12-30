@@ -6,6 +6,8 @@ export default function ReviewPage({}) {
     const { id } = useParams()
     const [reviews, set_reviews] = useState([])
     
+
+
     useEffect(() => {
         async function fetch_reviews() {
             const {data, error} = await supabase
@@ -20,6 +22,10 @@ export default function ReviewPage({}) {
         }
         fetch_reviews();
     }, [id])
+
+    async function post_review() {
+        //this will be where I write the function logic for writing a review to the app
+    }
     
 
     return (
