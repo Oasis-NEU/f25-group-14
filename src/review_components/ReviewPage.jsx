@@ -29,8 +29,16 @@ export default function ReviewPage({}) {
     
 
     return (
-        <div>
+        <div className='review-page'>
             <p>this is the review page, write review on the top and see others on the bottom</p>
+
+            <div className='create-review'>
+                <p>this is for the creation of the review</p>
+            </div>
+
+            <div className='view-reviews'>
+                <p>this is where we'll see past reviews </p>
+            </div>
         </div>
     )
 }
