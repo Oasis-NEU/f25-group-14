@@ -1,5 +1,6 @@
 import { supabase } from '../supabase';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function ReviewPage({}) {
     const { id } = useParams()
@@ -23,7 +24,7 @@ export default function ReviewPage({}) {
 
     return (
         <div>
-            <p>this is the reviwe page, write review on the top and see others on the bottom</p>
+            <p>this is the review page, write review on the top and see others on the bottom</p>
         </div>
     )
 }
