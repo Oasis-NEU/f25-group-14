@@ -24,7 +24,7 @@ export default function ReviewPage({}) {
     }, [id])
 
     async function post_review() {
-        //this will be where I write the function logic for writing a review to the app
+        //this will be where I write the function logic for writing a review to the app 
     }
     
 
