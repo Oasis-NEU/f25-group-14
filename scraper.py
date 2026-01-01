@@ -1,8 +1,5 @@
 """
 Current list of items to resolve
-* General Scraping Formatting:
-    - To make it so things are more organized, and to avoid whitespace issues and preserve a pages natural flow like it does in campus labs, I will individually 
-      search for the p tags in the usersupplied div and take the contents of each on, labelling them with dictionaries so the fellas know what to do.
 * Whitespace:
     - Wait until later once the description data is suffiecntly cleaned to avoid possible errors.
 * Getting images:
@@ -42,7 +39,7 @@ def get_contact_info(driver: webdriver) -> list[Optional[str]]:
 #I'm pretty sure the only elements that are in this div are p elements and ul -> 
 #returns a list of either p and ul elements and their texts as tuples. If there is a ul element, it will loop through it and take all of the li elements and put them
 # in a list which will then be assigned to 'ul' in a tuple.   
-def scan_user_div(driver: webdriver) -> list[(str, Any)]:
+def scan_user_div() -> list[(str, Any)]:
     return_list: list[(str, str)] = []
     root_div = waiting_time.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.bodyText-large.userSupplied")))
     elements: list[WebElement] = root_div.find_elements(By.CSS_SELECTOR, "p, ul")
@@ -123,7 +120,7 @@ for i in range(len(href_list)):
     club_name = waiting_time.until(EC.presence_of_element_located((By.XPATH, "//h1"))).text
     #grabs the description of the club by getting all of the p elements and then combining them into one
     
-    description: list[str, Any] = scan_user_div(driver)
+    description: list[str, Any] = scan_user_div()
 
     #attempt to grab image_url
     try:

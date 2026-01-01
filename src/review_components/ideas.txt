@@ -1,1 +1,4 @@
 Using this to keep track of what our review page will look like. Put ideas here:
+
+- Box for the written review. Upon review submission, it will be passed to a function that will filter through the user text to find any hate speech, swearing, 
+the works.
