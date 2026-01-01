@@ -1,10 +1,12 @@
 import { supabase } from '../supabase';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useGlobalStore } from "../store";
 
 export default function ReviewPage({}) {
     const { id } = useParams();
     const [reviews, set_reviews] = useState([]);
+    const GlobalValue = useGlobalStore((state) => state.GlobalValue);
     
     //user input variables
     const [ user_review , set_user_review ] = useState('');
@@ -26,7 +28,17 @@ export default function ReviewPage({}) {
     }, [id])
 
     async function post_review() {
-        //this will be where I write the function logic for writing a review to the app 
+        //first check if the user is logged in
+        if (GlobalValue) {
+            //then, once checked, check if either field is empty (or rating isn't a number between 0-5)
+
+            //finally, take the values and post the review    
+        }
+
+        else {
+            console.log("please log in before you post a review")
+        }
+
     }
     
 
