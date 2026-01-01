@@ -7,7 +7,8 @@ export default function ReviewPage({}) {
     const [reviews, set_reviews] = useState([]);
     
     //user input variables
-    const [ user_review, set_user_review ] = useState('');
+    const [ user_review , set_user_review ] = useState('');
+    const [ user_rating, set_user_rating ] = useState(0)
 
     useEffect(() => {
         async function fetch_reviews() {
@@ -36,6 +37,19 @@ export default function ReviewPage({}) {
 
             <div className='create-review'>
                 <p>this is for the creation of the review</p>
+                <input
+                    type="text"
+                    value={user_review}
+                    onChange={(e) => set_user_review(e.target.value)}
+                    placeholder="Write your review..."
+                />
+                <input
+                    type="number"
+                    value={user_rating}
+                    onChange={(e) => set_user_rating(e.target.value)}
+                    placeholder="Rate club out of 5"
+                />
+                <button onClick={post_review}>Post Review</button>
             </div>
 
             <div className='view-reviews'>
