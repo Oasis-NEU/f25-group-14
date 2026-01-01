@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 export default function ReviewPage({}) {
-    const { id } = useParams()
-    const [reviews, set_reviews] = useState([])
+    const { id } = useParams();
+    const [reviews, set_reviews] = useState([]);
     
-
+    //user input variables
+    const [ user_review, set_user_review ] = useState('');
 
     useEffect(() => {
         async function fetch_reviews() {
@@ -31,6 +32,7 @@ export default function ReviewPage({}) {
     return (
         <div className='review-page'>
             <p>this is the review page, write review on the top and see others on the bottom</p>
+
 
             <div className='create-review'>
                 <p>this is for the creation of the review</p>
