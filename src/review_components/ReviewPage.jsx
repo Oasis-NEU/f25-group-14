@@ -31,8 +31,19 @@ export default function ReviewPage({}) {
         //first check if the user is logged in
         if (GlobalValue) {
             //then, once checked, check if either field is empty (or rating isn't a number between 0-5)
-
-            //finally, take the values and post the review    
+            if(user_review && (user_rating in [0,1,2,3,4,5])) {
+                //finally, take the values and post the review
+                const { data, error } = await supabase
+                    .from('reviews')
+                    .upsert({club_name: "test", review_text: user_review, rating: user_rating, user: "test user"})
+                    .select()
+                
+                if (error) {
+                console.error('Error fetching reviews:', error);
+                return;
+                }
+            }
+             
         }
 
         else {
