@@ -1,8 +1,10 @@
 import { supabase } from '../supabase';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useGlobalStore } from "../store";
 
 export default function ReviewPage({}) {
+
     //current problem: I need to include all other spellings and cases of swears
     const badWords = [
         ' ass ', 'fuck', 'shit', 'bitch', 'whore', 'cunt', ' nigger', 'nigga', 'negro', 'chink', 'fag',
@@ -13,6 +15,14 @@ export default function ReviewPage({}) {
     const [ userReview, setReview ] =  useState("");
     const [reviews, set_reviews] = useState([]);
     const [warning, setWarning] = useState("")
+
+    const { id } = useParams();
+    const [reviews, set_reviews] = useState([]);
+    const GlobalValue = useGlobalStore((state) => state.GlobalValue);
+    
+    //user input variables
+    const [ user_review , set_user_review ] = useState('');
+    const [ user_rating, set_user_rating ] = useState(0)
 
     useEffect(() => {
         async function fetch_reviews() {
@@ -28,6 +38,20 @@ export default function ReviewPage({}) {
         }
         fetch_reviews();
     }, [id])
+
+    async function post_review() {
+        //first check if the user is logged in
+        if (GlobalValue) {
+            //then, once checked, check if either field is empty (or rating isn't a number between 0-5)
+
+            //finally, take the values and post the review    
+        }
+
+        else {
+            console.log("please log in before you post a review")
+        }
+
+    }
     
     const change = (e) => {
         setReview(e.target.value);
@@ -50,11 +74,33 @@ export default function ReviewPage({}) {
     }
 
     return (
-        <div>
+        <div className='review-page'>
             <p>this is the review page, write review on the top and see others on the bottom</p>
+
             <input type="text" value = {userReview} onChange={change}></input>
             <button onClick={submitReview}>Click me!</button>
             <p>{warning}</p>
+
+            <div className='create-review'>
+                <p>this is for the creation of the review</p>
+                <input
+                    type="text"
+                    value={user_review}
+                    onChange={(e) => set_user_review(e.target.value)}
+                    placeholder="Write your review..."
+                />
+                <input
+                    type="number"
+                    value={user_rating}
+                    onChange={(e) => set_user_rating(e.target.value)}
+                    placeholder="Rate club out of 5"
+                />
+                <button onClick={post_review}>Post Review</button>
+            </div>
+
+            <div className='view-reviews'>
+                <p>this is where we'll see past reviews </p>
+            </div>
         </div>
     )
 }

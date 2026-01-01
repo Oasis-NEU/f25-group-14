@@ -1,7 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useGlobalStore } from "../store";
 
-
 function Login() {
   const GlobalValue = useGlobalStore((state) => state.GlobalValue);
   const setGlobalValue = useGlobalStore((state) => state.setGlobalValue);
