@@ -3,11 +3,11 @@ import './ClubGrid.css';
 import heartEmpty from '/src/assets/empty_heart.png';
 import heartFull from '/src/assets/full_heart.png';
 import { supabase } from '../supabase';
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
-export const ClubGrid = ({ result }) => {
-  const [expanded, setExpanded] = useState(false);
+export const ClubGrid = ({ result, onExpand }) => {
+  
   const [liked, setLiked] = useState(false);
   const [animating, setAnimating] = useState(false);
 
@@ -45,9 +45,12 @@ export const ClubGrid = ({ result }) => {
   };
 
   return (
-    <div
-      className={`club-card ${expanded ? 'expanded' : ''}`}
-      onClick={() => setExpanded(!expanded)}
+    <motion.div 
+      layoutId = {'club-${result.id}'}
+      className= "club-card"
+      onClick ={onExpand}
+      whileHover = {{scale: 1.02}}
+      transition = {{duration: 0.2}}
     >
       <img
         className={`heart-btn ${animating ? 'pop' : ''}`}
@@ -59,16 +62,10 @@ export const ClubGrid = ({ result }) => {
 
       <div className="club-info">
         <h2>{result.club_name}</h2>
-        <h3>
-          {expanded ? result.club_description : truncate(result.club_description)}
-        </h3>
+        <p>{truncate(result.club_description)}</p>
       </div>
-      <Link to="/reviews/:id">Click here to see reviews</Link>
-    </div>
+     
+    </motion.div>
   );
 };
 
-/* <p>
-          <strong>Rating: </strong>
-          {"⭐".repeat(parseInt(result.rating))}
-        </p> */
