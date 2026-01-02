@@ -1,7 +1,45 @@
+.card-wrapper {
+  position: relative;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes orbit {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.orbit-shadow {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 20px;
+  z-index: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from calc(var(--start-angle, 0deg) + var(--angle)),
+    transparent 0deg,
+    transparent 30deg,
+    rgba(88, 88, 88, 0.3) 60deg,
+    transparent 70deg,
+    transparent 360deg
+  );
+  filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.orbit-shadow.active {
+  opacity: 1;
+  animation: orbit 8s linear infinite;
+}
+
 .club-card {
   background: #f9f9f9;
   box-shadow: 1px 1px 2px #d3d3d3;
-
   padding: 20px;
   width: 35vw;
   display: flex;
@@ -11,35 +49,10 @@
   min-width: 250px;
   border-radius: 15px;
   border: 1px solid rgb(162, 162, 162);
- 
-  transition:
-    transform 0.35s ease,
-    width 0.35s ease,
-    height 0.35s ease,
-    box-shadow 0.35s ease;
-
   cursor: pointer;
   position: relative;
   z-index: 1;
-
 }
-
-/* expanded state */
-.club-card.expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -30%) scale(1.2);
-  width: 70vw;
-  height: 50vh;
-  justify-content: flex-start;
-  padding: 20px;
-  border: 3px solid rgb(187, 187, 187);
-  box-shadow: 0 20px 80px rgba(0,0,0,0.4), 
-            0 0 0 9999px rgba(0,0,0,0.65);
-  z-index: 9999;
-}
-
 
 .club-img {
   background-color: #eee;
@@ -52,7 +65,7 @@
   font-size: 2rem;
 }
 
- .club-info h2 {
+.club-info h2 {
   margin: 0;
   color: rgb(206, 0, 0);
   font-family: "Josefin Sans", sans-serif;
@@ -69,8 +82,6 @@
   font-size: medium;
   font-weight: 400;
   letter-spacing: 0.9px;
-  
-
 }
 
 .heart-btn {
@@ -83,11 +94,6 @@
   z-index: 50;
   transition: transform 0.12s ease;
   user-select: none;
-}
-
-/* cute pop animation */
-.heart-btn.pop {
-  transform: scale(1.35);
 }
 
 .heart-btn.pop {

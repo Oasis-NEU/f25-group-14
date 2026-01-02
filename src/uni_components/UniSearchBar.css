@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     box-shadow: 0px 0px 4px #bcbcbc;
-    border: 2px solid black;
+    border: 2px solid rgb(110, 110, 110);
 }
 
 input {
