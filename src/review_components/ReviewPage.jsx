@@ -11,14 +11,10 @@ export default function ReviewPage({}) {
         ' a$$', ' a$s', 'as$', '@ss', 'sh1t', 'bltch', 'b1tch', 'wh0re', 'n1gger', 'nlgger', 'n1gga', 'nlgga', 'negr0', 'f@g', 'asshole', 'assh0le',
         'retard', 'pussy', 'ret@rd'
     ]
+    const GlobalValue = useGlobalStore((state) => state.GlobalValue);
     const { id } = useParams();
-    const [ userReview, setReview ] =  useState("");
     const [reviews, set_reviews] = useState([]);
     const [warning, setWarning] = useState("")
-
-    const { id } = useParams();
-    const [reviews, set_reviews] = useState([]);
-    const GlobalValue = useGlobalStore((state) => state.GlobalValue);
     
     //user input variables
     const [ user_review , set_user_review ] = useState('');
@@ -45,7 +41,15 @@ export default function ReviewPage({}) {
             //then, once checked, check if either field is empty (or rating isn't a number between 0-5)
             if(user_review && (user_rating in [0,1,2,3,4,5])) {
                 //finally, take the values and post the review
-                const { data, error } = await supabase
+                for(let i=0; i < badWords.length; i++) {
+                    const regex = new RegExp(badWords[i], 'gi');
+                    if(regex.test(user_review)){
+                        setWarning("Review contains harmful content. Please do not use derogatory or harmful speech.");
+                        return;
+                    }
+                }
+
+                const { data , error } = await supabase
                     .from('reviews')
                     .upsert({club_name: "test", review_text: user_review, rating: user_rating, user: "test user"})
                     .select()
@@ -54,43 +58,33 @@ export default function ReviewPage({}) {
                 console.error('Error fetching reviews:', error);
                 return;
                 }
-            }
-             
+            }    
         }
-
         else {
             console.log("please log in before you post a review")
         }
-
-    }
-    
-    const change = (e) => {
-        setReview(e.target.value);
     }
 
-    const submitReview = () => {
-        console.log("Button pressed!")
-        if(userReview.length < 10){
-            setWarning("Written review too short. Use at least 10 characters");
-            return;
-        }
-        for(let i=0; i < badWords.length; i++){
-            const regex = new RegExp(badWords[i], 'gi');
-            if(regex.test(userReview)){
-                setWarning("Review contains harmful content. Please do not use derogatory or harmful speech.");
-                return;
-            }
-        }
-        setWarning("")
-    }
+
+    // const submitReview = () => {
+    //     console.log("Button pressed!")
+    //     if(userReview.length < 10){
+    //         setWarning("Written review too short. Use at least 10 characters");
+    //         return;
+    //     }
+    //     for(let i=0; i < badWords.length; i++){
+    //         const regex = new RegExp(badWords[i], 'gi');
+    //         if(regex.test(userReview)){
+    //             setWarning("Review contains harmful content. Please do not use derogatory or harmful speech.");
+    //             return;
+    //         }
+    //     }
+    //     setWarning("")
+    // }
 
     return (
         <div className='review-page'>
             <p>this is the review page, write review on the top and see others on the bottom</p>
-
-            <input type="text" value = {userReview} onChange={change}></input>
-            <button onClick={submitReview}>Click me!</button>
-            <p>{warning}</p>
 
             <div className='create-review'>
                 <p>this is for the creation of the review</p>
@@ -107,6 +101,7 @@ export default function ReviewPage({}) {
                     placeholder="Rate club out of 5"
                 />
                 <button onClick={post_review}>Post Review</button>
+                <p>{warning}</p>
             </div>
 
             <div className='view-reviews'>
