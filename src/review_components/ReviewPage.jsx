@@ -41,6 +41,7 @@ export default function ReviewPage({}) {
             //then, once checked, check if either field is empty (or rating isn't a number between 0-5)
             if(user_review && (user_rating in [0,1,2,3,4,5])) {
                 //finally, take the values and post the review
+                
                 for(let i=0; i < badWords.length; i++) {
                     const regex = new RegExp(badWords[i], 'gi');
                     if(regex.test(user_review)){
