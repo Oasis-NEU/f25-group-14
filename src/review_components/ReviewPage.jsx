@@ -105,8 +105,13 @@ export default function ReviewPage({}) {
                 <p>{warning}</p>
             </div>
 
+            <p>this is where we'll see past reviews </p>
             <div className='view-reviews'>
-                <p>this is where we'll see past reviews </p>
+                { 
+                    reviews.map((review) => {
+                        return <ReviewGrid review={review} key={review.club_name}/>
+                    })
+                }
             </div>
         </div>
     )
