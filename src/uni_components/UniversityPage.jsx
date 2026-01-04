@@ -82,7 +82,10 @@ export const UniversityPage = () => {
         <UniSearchBar setResults={setResults} university={university.uni_name} />
       </div>
 
+      {isDocked && <div className="dock-spacer" />}
+
       <ClubList results={results} />
     </div>
   );
 };
+

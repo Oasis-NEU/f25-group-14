@@ -1,26 +1,51 @@
-/* UniversityPage.css */
-
 .UniPage {
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  align-items: center;   
+  align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
   min-width: 800px;
   width: 100%;
   padding-top: 2vh;
   box-sizing: border-box;
-  color: rgb(0, 0, 0); 
+  color: rgb(0, 0, 0);
 }
+
 .raleway-uni {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 2 1 0.9rem 1;
+  font-weight: 210.9rem 1;
   font-size: 10vh;
   margin-bottom: 12px;
 }
 
+.dock-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Docked to top */
+.dock-wrapper.docked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #f9f9f9 0%, #f9f9f9 70%, transparent 100%);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Spacer to prevent content jump */
+.dock-spacer {
+  height: 120px;
+}
 
 .header-wrapper {
   width: 40vw;
@@ -31,88 +56,10 @@
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
-
 }
 
-.dock-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-  width: 100%;
-  
-  animation: slideDown 1 linear both;
-  
-  animation-timeline: scroll();
-  animation-range: 0% 100%;
-  
-  transition: scale 1.4s ease;
-}
-
-/* when docking to bottom */
-.dock-wrapper.docked {
-  position: fixed;
-  bottom: 0;
-  z-index: 999;
-  padding-bottom: 0.7rem;
-  scale: 0.98;
-}
-
-/* stops page from jumping up */
-.dock-spacer {
-  height: 170px; /* adjust depending on icon bar height */
-}
-
-/* wrapper for search bar only */
 .club-input-wrapper-outer {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
-.glass-bar {
-  position: absolute;
-  bottom: 30;       /* slightly below the dock */
-  width: 90vw;
-  height: 210px;
-
-  background: #f4f4f5;
-  border-radius: 20px;
-  z-index: -1;
-  box-shadow: 0px 0px 5px #828282;
-}
-
-
-
-/* .grid-container {
-
-  display: grid;
-
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 20px;
-
-  width: 90%;
-
-  max-width: 1200px;
-
-  margin-top: 3vh;
-
-  margin-bottom: 3vh;
-
-  padding: 0 20px;
-
-}
-
-.grid-box {
-
-  background-color: #888;
-
-  aspect-ratio: 1;
-
-  min-height: 200px;
-
-  border-radius: 8px;
-
-} */
