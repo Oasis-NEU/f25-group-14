@@ -1,32 +1,42 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Portal from "../Portal";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./ExpandedTile.css";
 
 
-function ExpandedTile({club, onClose}){
-    return (
-    <AnimatePresence>
 
+function ExpandedTile({result, onClose}){
+    return (
+        <Portal>
+        <AnimatePresence>
         <motion.div
-            layoutId = {'club-${club.id}'}
             className = "expanded-card"
-            initial = {{opacity: 0}}
-            animate = {{opacity: 1}}
-            exit = {{ opacity: 0}}
+            initial = {{backgroundColor: 'rgba(0,0,0,0)'}}
+            animate = {{backgroundColor: 'rgba(0,0,0,0.5)'}}
+            onClick = {onClose}
 
         >
+
+        <motion.div
+         layoutId = {`result-${result.id}`}
+         className = "expanded-content"
+         onClick={(e) => e.stopPropagation()}
+         transition ={{type: 'spring', stiffness: 300, damping: 30}}
+         >
+
         <button className = "close-btn" onClick={onClose}>x</button>
         
-        <h2>{club.club_name}</h2>
-        <p>{club.club_description}</p>
+        <motion.h2>{result.club_name}</motion.h2>
+        <motion.p>{result.club_description}</motion.p>
 
         <Link to="/reviews/:id">Click here to see reviews</Link>
         
 
 
         </motion.div>
-    </AnimatePresence>
+        </motion.div>
+        </AnimatePresence>
+    </Portal>
     );
 }
 

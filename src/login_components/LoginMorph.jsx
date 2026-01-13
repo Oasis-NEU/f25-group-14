@@ -1,15 +1,17 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import Login from "./Login";
 import Logout from "./Logout"
 import Form from "./form";
 import "./LoginMorph.css";
 import { useGlobalStore } from "../store";
+import Portal from "../Portal";
 
 
 function LoginMorph({ open, setOpen }) {
   let GlobalValue = useGlobalStore((state) => state.GlobalValue);
 
   return (
+   
     <AnimatePresence>
       {!open && (
         <motion.button
@@ -36,6 +38,7 @@ function LoginMorph({ open, setOpen }) {
         </motion.div>
       )}
     </AnimatePresence>
+ 
   );
 }
 

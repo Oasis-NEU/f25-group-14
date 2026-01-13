@@ -19,7 +19,7 @@ export const UniversityPage = () => {
   
     useEffect(() => {
     const handleScroll = () => {
-      const triggerPoint = 180;
+      const triggerPoint = 20;
       setIsDocked(window.scrollY > triggerPoint);
     };
 
@@ -75,9 +75,10 @@ export const UniversityPage = () => {
 
   return (
     <div className="UniPage">
-      <h1 className="raleway-uni">{university.uni_name}</h1>
+      
 
-      <div className={`dock-wrapper ${isDocked ? 'docked' : ''}`}>
+        <div className={`dock-wrapper ${isDocked ? 'docked' : ''}`}>
+        <h1 className="raleway-uni">{university.uni_name}</h1>
         <IconBar onFavoritesClick={fetchFavorites} />
         <UniSearchBar setResults={setResults} university={university.uni_name} />
       </div>

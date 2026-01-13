@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ClubGrid } from './ClubGrid';
 import ExpandedTile from "./ExpandedTile";
 import './ClubList.css';
+import { AnimatePresence, LayoutGroup } from 'framer-motion';
 
 export const ClubList = ({ results }) => {
   const [expandedClub, setExpandedClub] = useState(null);
@@ -12,22 +13,26 @@ export const ClubList = ({ results }) => {
 
   return (
     <>
-    <div className="clubs-list">
-      {results.map((club) => (
+      
+      <div className="clubs-list">
+      {results.map((result) => (
         <ClubGrid 
-          key={club.id} 
-          result={club} 
-          onExpand={() => setExpandedClub(club)}
+          key={result.id} 
+          result={result} 
+          onClick={() => setExpandedClub(result)}
         
         />
       ))}
-    </div>
-    
+      </div>
+    <AnimatePresence>
     {expandedClub && (
       <ExpandedTile
-        club = {expandedClub}
+        key = {expandedClub.id}
+        result = {expandedClub}
         onClose={() => setExpandedClub(null)}
-    />)}
+      />
+    )}
+    </AnimatePresence>
     </>
   );
 };
